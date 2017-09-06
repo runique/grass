@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <!-- saved from url=(0037)https://www.w3.org/TR/html-templates/ -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>HTML Templates</title>
+<title>Grass</title>
 
-<link rel="stylesheet" href="./HTML_Templates_files/W3C-WG-NOTE" type="text/css">
+<link rel="stylesheet" href="/static/css/W3C-WG-NOTE" type="text/css">
 </head>
 
 <body>
@@ -11,7 +11,7 @@
 <div class="head">
 
 <div class="logo">
-    <a href="http://www.w3.org/"><img width="72" height="48" src="./HTML Templates_files/w3c_home" alt="W3C"></a>
+    <a href="http://www.w3.org/"><img img width="72" height="48" src="/static/img/oglala.jpg" alt="W3C"></a>
 </div>
 
 <h1>HTML Templates</h1>
