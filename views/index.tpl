@@ -11,22 +11,32 @@
 <div class="head">
 
 <div class="logo">
-    <a href="http://www.w3.org/"><img img width="72" height="48" src="/static/img/oglala.jpg" alt="W3C"></a>
+    <!--<a href="http://www.w3.org/">--><img img width="100%" height="248" src="/static/img/oglala.jpg" alt="Grass"></a>
 </div>
 
-<h1>HTML Templates</h1>
-<h2 id="wg-note">W3C Working Group Note 18 March 2014</h2>
+<h1>Free programming books</h1>
+<h2 id="wg-note">clear crisp to-the-point </h2>
 <dl>
+<!--
 <dt>This version</dt>
     <dd><a href="http://www.w3.org/TR/2014/NOTE-html-templates-20140318/">http://www.w3.org/TR/2014/NOTE-html-templates-20140318/</a></dd>
 <dt>Latest version</dt>
     <dd><a href="http://www.w3.org/TR/html-templates/">http://www.w3.org/TR/html-templates/</a></dd>
 <dt>Latest editor's draft</dt>
     <dd><a href="https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/templates/index.html">https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/templates/index.html</a></dd>
-<dt>Previous version</dt>
-    <dd><a href="http://www.w3.org/TR/2013/WD-html-templates-20130214/">http://www.w3.org/TR/2013/WD-html-templates-20130214/</a></dd>
+	-->
+<dt>book1</dt>
+    <dd><a href="http://www.w3.org/TR/2013/WD-html-templates-20130214/">golang programming</a></dd>
+
+<dt>book2</dt>
+    <dd><a href="http://www.w3.org/TR/2013/WD-html-templates-20130214/">python programming</a></dd>
+
+<dt>book3</dt>
+    <dd><a href="http://www.w3.org/TR/2013/WD-html-templates-20130214/">javascript programming</a></dd>
+<!--
 <dt>Revision history</dt>
     <dd><a href="https://dvcs.w3.org/hg/webcomponents/log/tip/spec/templates/index.html">https://dvcs.w3.org/hg/webcomponents/log/tip/spec/templates/index.html</a></dd>
+	
 <dt>Participate</dt>
     <dd>Discuss on <a href="http://lists.w3.org/Archives/Public/public-webapps/">public-webapps@w3.org</a> (<a href="http://www.w3.org/2008/webapps/">Web Applications Working Group</a>)</dd>
     <dd><a href="https://www.w3.org/Bugs/Public/enter_bug.cgi?comment=&amp;blocked=15476&amp;short_desc=%5BTemplates%5D%3A%20&amp;product=WebAppsWG&amp;component=Component%20Model">File bugs</a> (w3.org's <a href="https://www.w3.org/Bugs/Public/">Bugzilla</a>)</dd>
@@ -34,6 +44,7 @@
     <dd class="vcard"><span class="fn">Dimitri Glazkov</span>, <span class="org">Google</span>, &lt;<a class="email" href="mailto:dglazkov@chromium.org">dglazkov@chromium.org</a>&gt;</dd>
     <dd class="vcard"><span class="fn">Rafael Weinstein</span>, <span class="org">Google</span>, &lt;<a class="email" href="mailto:rafaelw@chromium.org">rafaelw@chromium.org</a>&gt;</dd>
     <dd class="vcard"><span class="fn">Tony Ross</span>, <span class="org">Microsoft</span>, &lt;<a class="email" href="mailto:tross@microsoft.com">tross@microsoft.com</a>&gt;</dd>
+	-->
 </dl>
 
 <p class="copyright"><a href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2014 <a href="http://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup> (<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="http://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>), All Rights Reserved. W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>, <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a href="http://www.w3.org/Consortium/Legal/copyright-documents">document use</a> rules apply.</p>
