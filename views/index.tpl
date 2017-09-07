@@ -11,11 +11,11 @@
 <div class="head">
 
 <div class="logo">
-    <!--<a href="http://www.w3.org/">--><img img width="100%" height="248" src="/static/img/oglala.jpg" alt="Grass"></a>
+    <!--<a href="http://www.w3.org/">--><img img width="100%" height="130" src="/static/img/oglala.jpg" alt="Grass"></a>
 </div>
 
-<h1>Free programming books</h1>
-<h2 id="wg-note">clear crisp to-the-point </h2>
+<!--<h1>Free programming books</h1>-->
+<h3 id="wg-note">自由免费的编程参考</h2>
 <dl>
 <!--
 <dt>This version</dt>
@@ -25,13 +25,13 @@
 <dt>Latest editor's draft</dt>
     <dd><a href="https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/templates/index.html">https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/templates/index.html</a></dd>
 	-->
-<dt>book1</dt>
+<dt>编程语言打首发得分</dt>
     <dd><a href="http://www.w3.org/TR/2013/WD-html-templates-20130214/">golang programming</a></dd>
 
-<dt>book2</dt>
+<dt>开发平台</dt>
     <dd><a href="http://www.w3.org/TR/2013/WD-html-templates-20130214/">python programming</a></dd>
 
-<dt>book3</dt>
+<dt>工具软件</dt>
     <dd><a href="http://www.w3.org/TR/2013/WD-html-templates-20130214/">javascript programming</a></dd>
 <!--
 <dt>Revision history</dt>
@@ -47,6 +47,7 @@
 	-->
 </dl>
 
+<!--
 <p class="copyright"><a href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2014 <a href="http://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup> (<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="http://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>), All Rights Reserved. W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>, <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a href="http://www.w3.org/Consortium/Legal/copyright-documents">document use</a> rules apply.</p>
 
 <hr>
@@ -67,7 +68,7 @@ previously specified in this document are now specified in <a href="http://www.w
 <p>This document was published by the <a href="http://www.w3.org/2008/webapps/">Web Applications Working Group</a> as a Working Group Note. If you wish to make comments regarding this document, please send them to <a href="mailto:public-webapps@w3.org">public-webapps@w3.org</a> (<a href="mailto:public-webapps-request@w3.org?subject=subscribe">subscribe</a>, <a href="http://lists.w3.org/Archives/Public/public-webapps/">archives</a>). All feedback is welcome.</p><p>Publication as a Working Group Note does not imply endorsement by the <abbr title="World Wide Web Consortium">W3C</abbr> Membership. This is a draft document and may be updated, replaced or obsoleted by other documents at any time. It is inappropriate to cite this document as other than work in progress.</p>
 
 <p>This document was produced by a group operating under the <a href="http://www.w3.org/Consortium/Patent-Policy-20040205/">5 February 2004 <abbr title="World Wide Web Consortium">W3C</abbr> Patent Policy</a>. <abbr title="World Wide Web Consortium">W3C</abbr> maintains a <a href="http://www.w3.org/2004/01/pp-impl/42538/status" rel="disclosure">public list of any patent disclosures</a> made in connection with the deliverables of the group; that page also includes instructions for disclosing a patent. An individual who has actual knowledge of a patent which the individual believes contains <a href="http://www.w3.org/Consortium/Patent-Policy-20040205/#def-essential">Essential Claim(s)</a> must disclose the information in accordance with <a href="http://www.w3.org/Consortium/Patent-Policy-20040205/#sec-Disclosure">section 6 of the <abbr title="World Wide Web Consortium">W3C</abbr> Patent Policy</a>.</p>
-
+-->
 </div>
 
 
