@@ -26,7 +26,7 @@
     <dd><a href="https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/templates/index.html">https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/templates/index.html</a></dd>
 	-->
 <dt>编程语言打首发得分</dt>
-    <dd><a href="http://www.w3.org/TR/2013/WD-html-templates-20130214/">golang programming</a></dd>
+    <dd><a href="/static/html/testbook1.html">golang programming</a></dd>
 
 <dt>开发平台</dt>
     <dd><a href="http://www.w3.org/TR/2013/WD-html-templates-20130214/">python programming</a></dd>
