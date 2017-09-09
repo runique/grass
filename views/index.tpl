@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <!-- saved from url=(0037)https://www.w3.org/TR/html-templates/ -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Grass</title>
-
-<link rel="stylesheet" href="/static/css/W3C-WG-NOTE" type="text/css">
+<link rel="shortcut icon" href="/static/img/r-letter.png" />
+<!--<link rel="stylesheet" href="/static/css/W3C-WG-NOTE" type="text/css">-->
 </head>
 
 <body>
 
 <div class="head">
 
-<div class="logo">
-    <!--<a href="http://www.w3.org/">--><img img width="100%" height="130" src="/static/img/oglala.jpg" alt="Grass"></a>
-</div>
+<!--<div class="logo">-->
+    <!--<a href="http://www.w3.org/"><img img width="100%" height="130" src="/static/img/oglala.jpg" alt="Grass"></a>-->
+<!--</div>-->
 
 <!--<h1>Free programming books</h1>-->
 <h3 id="wg-note">自由免费的编程参考</h2>
