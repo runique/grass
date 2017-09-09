@@ -25,11 +25,11 @@
 <dt>Latest editor's draft</dt>
     <dd><a href="https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/templates/index.html">https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/templates/index.html</a></dd>
 	-->
-<dt>编程语言打首发得分</dt>
-    <dd><a href="/static/html/testbook1.html">golang programming</a></dd>
+<dt>Building an E-Book from HTML</dt>
+    <dd><a href="/static/html/testbook1.html">Building an E-Book from HTML</a></dd>
 
-<dt>开发平台</dt>
-    <dd><a href="http://www.w3.org/TR/2013/WD-html-templates-20130214/">python programming</a></dd>
+<dt>go语言编程</dt>
+    <dd><a href="/static/doc/Go语言编程.pdf">Go语言编程</a></dd>
 
 <dt>工具软件</dt>
     <dd><a href="http://www.w3.org/TR/2013/WD-html-templates-20130214/">javascript programming</a></dd>
