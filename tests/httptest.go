@@ -26,15 +26,13 @@ func createHTTPClient() *http.Client {
 		Transport: &http.Transport{
 			MaxIdleConnsPerHost: 1,
 		},
-		Timeout: time.Duration(30) * time.Second,
+		Timeout: time.Duration(3) * time.Second,
 	}
 
 	return client
 }
 
 func postHttp(url *string, sendBody []byte, getResult bool) ([]byte, int32, error) {
-	var err error
-
 	//beego..Info("request data:%s\n", sendBody)
 	//fmt.Println("", string(sendBody))
 	httpReq, err := http.NewRequest("POST", *url, bytes.NewBuffer(sendBody))
@@ -79,7 +77,7 @@ func postHttp(url *string, sendBody []byte, getResult bool) ([]byte, int32, erro
 
 func initLog() {
 	beego.BeeLogger.DelLogger("console")
-	err := beego.BeeLogger.SetLogger("file", `{"filename":"mytest/my.log"}`)
+	err := beego.BeeLogger.SetLogger("file", `{"filename":"log/test.log"}`)
 	if err != nil {
 		fmt.Printf(err.Error())
 	}
