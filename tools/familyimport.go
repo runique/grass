@@ -7,7 +7,11 @@ import (
 	"net"
 	"net/http"
 	//"strconv"
+	"bufio"
+	"encoding/json"
 	"errors"
+	"flag"
+	"os"
 	"time"
 
 	"github.com/astaxie/beego"
@@ -15,7 +19,17 @@ import (
 
 var (
 	httpClient *http.Client
+
+	totalRecordNum    int
+	importedRecordNum int
+
+	importOver chan int
 )
+
+type GeneralRsp struct {
+	RetCode int
+	Desc    string
+}
 
 func initHttp() {
 	httpClient = createHTTPClient()
@@ -26,7 +40,7 @@ func createHTTPClient() *http.Client {
 		Transport: &http.Transport{
 			MaxIdleConnsPerHost: 1,
 		},
-		Timeout: time.Duration(3) * time.Second,
+		Timeout: time.Duration(0) * time.Second,
 	}
 
 	return client
@@ -56,12 +70,12 @@ func postHttp(url *string, sendBody []byte, getResult bool) ([]byte, int32, erro
 		}
 		return []byte(err.Error()), -2, err
 	}
-	defer httpRsp.Body.Close()
+	//defer httpRsp.Body.Close()
 
 	var httpRspBody []byte
 	if getResult {
-		beego.Info("response Status:", httpRsp.Status)
-		beego.Info("response Headers:", httpRsp.Header)
+		//beego.Info("response Status:", httpRsp.Status)
+		//beego.Info("response Headers:", httpRsp.Header)
 
 		httpRspBody, err = ioutil.ReadAll(httpRsp.Body)
 		if err != nil {
@@ -69,7 +83,18 @@ func postHttp(url *string, sendBody []byte, getResult bool) ([]byte, int32, erro
 			return []byte(err.Error()), -3, err
 		}
 
-		beego.Info("response Body:", string(httpRspBody))
+		generalRsp := &GeneralRsp{}
+		err := json.Unmarshal(httpRspBody, generalRsp)
+		if err != nil {
+			beego.Error(err)
+			return nil, -1, err
+		}
+
+		if generalRsp.RetCode != 0 {
+			beego.Error("Import family-info failed:%s", generalRsp.Desc)
+		}
+
+		//beego.Info("response Body:", string(httpRspBody))
 	}
 
 	return httpRspBody, 0, nil
@@ -77,7 +102,7 @@ func postHttp(url *string, sendBody []byte, getResult bool) ([]byte, int32, erro
 
 func initLog() {
 	beego.BeeLogger.DelLogger("console")
-	err := beego.BeeLogger.SetLogger("file", `{"filename":"log/test.log"}`)
+	err := beego.BeeLogger.SetLogger("file", `{"filename":"log/familyimport.log"}`)
 	if err != nil {
 		fmt.Printf(err.Error())
 	}
@@ -89,20 +114,82 @@ func initLog() {
 	beego.BeeLogger.SetLevel(logLevel)
 }
 
+func countFileLineNum(fileName string) int {
+	importFile, _ := os.Open(fileName)
+	defer importFile.Close()
+
+	fscanner := bufio.NewScanner(importFile)
+	lineNum := 0
+	for fscanner.Scan() {
+		fscanner.Text()
+
+		lineNum++
+	}
+
+	return lineNum
+}
+
+func importFamilyInfo(url string, fileName string) {
+	initHttp()
+
+	importFile, _ := os.Open(fileName)
+	defer importFile.Close()
+
+	fscanner := bufio.NewScanner(importFile)
+
+	for fscanner.Scan() {
+		str := fscanner.Text()
+		fmt.Println(str)
+		_, _, err := postHttp(&url, []byte(str), true)
+		if err != nil {
+			panic(err)
+		}
+
+		time.Sleep(10000 * time.Second)
+
+		importedRecordNum++
+	}
+
+	importOver <- 1
+}
+
+func init() {
+	importOver = make(chan int)
+
+}
+
 func main() {
 	initLog()
 
-	initHttp()
+	grassUrl := flag.String("server", "http://10.20.110.33:8080", "The http server to which family-info imported")
+	fileName := flag.String("file", "group47.family", "The file to be imported")
 
-	//url := "http://10.20.110.33:8089/paynotify?serverid=104701"
-	url := "http://10.20.110.33:8089/paynotify"
+	flag.Parse()
 
-	for i := 0; i < 10000; i++ {
-		postHttp(&url, []byte(`{"serverId" : "47"}`), true)
-	}
+	*grassUrl += "/grass/setfamilyinfo"
+
+	fmt.Println("Count familyNum....")
+	familyNum := countFileLineNum(*fileName)
+	fmt.Println("Count familyNum done, the number of family to be imported:", familyNum)
+
+	go importFamilyInfo(*grassUrl, *fileName)
 
 	for {
-		time.Sleep(1 * time.Second)
+		select {
+		case _ = <-importOver:
+			fmt.Printf("\nimportedNum| totalNum:   %d| %d\n", importedRecordNum, familyNum)
+
+			fmt.Printf("Import families done.")
+			goto readover
+
+		case <-time.After(time.Duration(time.Duration(2) * time.Second)):
+			fmt.Printf("\rimportedNum| totalNum:   %d| %d", importedRecordNum, familyNum)
+		}
 	}
+
+readover:
+
+	fmt.Print("Press 'Enter' to continue...")
+	bufio.NewReader(os.Stdin).ReadBytes('\n')
 
 }
