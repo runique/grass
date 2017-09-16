@@ -9,10 +9,13 @@ type MainController struct {
 }
 
 func (c *MainController) Get() {
-	c.Ctx.Output.Body([]byte("The grass-server works."))
-	/*
+	runMode := beego.AppConfig.String("runmode")
+
+	if runMode == "s12" {
+		c.Ctx.Output.Body([]byte("The grass-server works."))
+	} else {
 		c.Data["Website"] = "beego.me"
 		c.Data["Email"] = "astaxie@gmail.com"
 		c.TplName = "index.tpl"
-	*/
+	}
 }
