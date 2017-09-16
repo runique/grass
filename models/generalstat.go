@@ -3,8 +3,7 @@ package models
 import (
 	"encoding/json"
 	"fmt"
-	. "media/proto"
-	. "media/utils"
+	. "grass/utils"
 
 	"os"
 	"path/filepath"
@@ -64,45 +63,6 @@ var (
 )
 
 func InitStatObj() {
-	cliCmdStr[uint16(CLI_MEDIA_CMD_CLI_TO_MEDIA_REGISTER_REQ)] = "doCliRegReq"
-	cliCmdStr[uint16(CLI_MEDIA_CMD_CLI_TO_MEDIA_HBT_REQ)] = "doCliHbtReq"
-	cliCmdStr[uint16(CLI_MEDIA_CMD_CLI_TO_MEDIA_GET_OWNERINFO_REQ)] = "doCliGetOwnerInfo"
-	cliCmdStr[uint16(CLI_MEDIA_CMD_CLI_TO_MEDIA_ADD_BLOGLIKE_REQ)] = "doCliAddBlogLike"
-
-	// board message....
-	cliCmdStr[uint16(CLI_MEDIA_CMD_CLI_TO_MEDIA_GET_BOARD_REQ)] = "doCliGetBoardMsg"
-	cliCmdStr[uint16(CLI_MEDIA_CMD_CLI_TO_MEDIA_ADD_BOARD_REQ)] = "doCliAddBoardMsg"
-	cliCmdStr[uint16(CLI_MEDIA_CMD_CLI_TO_MEDIA_DEL_BOARD_REQ)] = "doCliDelBoardMsg"
-
-	// mood message....
-	cliCmdStr[uint16(CLI_MEDIA_CMD_CLI_TO_MEDIA_GET_MOOD_REQ)] = "doCliGetMoodMsg"
-	cliCmdStr[uint16(CLI_MEDIA_CMD_CLI_TO_MEDIA_ADD_MOOD_REQ)] = "doCliAddMoodMsg"
-	cliCmdStr[uint16(CLI_MEDIA_CMD_CLI_TO_MEDIA_DEL_MOOD_REQ)] = "doCliDelMoodMsg"
-
-	cliCmdStr[uint16(CLI_MEDIA_CMD_CLI_TO_MEDIA_ADD_MOODCOMMENT_REQ)] = "doCliAddMoodComment"
-	cliCmdStr[uint16(CLI_MEDIA_CMD_CLI_TO_MEDIA_DEL_MOODCOMMENT_REQ)] = "doCliDelMoodComment"
-
-	cliCmdStr[uint16(CLI_MEDIA_CMD_CLI_TO_MEDIA_ADD_MOODLIKE_REQ)] = "doCliAddMoodLike"
-
-	// friend message....
-	cliCmdStr[uint16(CLI_MEDIA_CMD_CLI_TO_MEDIA_GET_FRIENDMSG_REQ)] = "doCliGetFriendMsg"
-
-	// portrait....
-	cliCmdStr[uint16(CLI_MEDIA_CMD_CLI_TO_MEDIA_GET_PORTRAIT_REQ)] = "doCliGetPortrait"
-	cliCmdStr[uint16(CLI_MEDIA_CMD_CLI_TO_MEDIA_SET_PORTRAIT_REQ)] = "doCliSetPortrait"
-	cliCmdStr[uint16(CLI_MEDIA_CMD_CLI_TO_MEDIA_DEL_PORTRAIT_REQ)] = "doCliDelPortrait"
-
-	// declare....
-	cliCmdStr[uint16(CLI_MEDIA_CMD_CLI_TO_MEDIA_SET_BLOGDECLARE_REQ)] = "doCliSetBlogDeclare"
-
-	// voice processing....
-	//cliCmdStr[uint16(CLI_MEDIA_CMD_CLI_TO_MEDIA_TRANSLATE_REQ)] = "doCliTranslate"
-	//cliCmdStr[uint16(CLI_MEDIA_CMD_CLI_TO_MEDIA_FETCH_VOICE_REQ)] = "doCliFetchVoice"
-
-	// voice-data set-get command for compliance temporarily.
-	cliCmdStr[uint16(CLI_MEDIA_CMD_CLI_TO_MEDIA_SEND_VOICE_REQ)] = "doCliSendChatSvrVoice"
-	cliCmdStr[uint16(CLI_MEDIA_CMD_CLI_TO_MEDIA_GET_VOICE_REQ)] = "doCliGetChatSvrVoice"
-
 	for _, cmdStr := range cliCmdStr {
 		funcStat := &FuncStat{}
 		cliStat[cmdStr] = funcStat
