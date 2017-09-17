@@ -6,8 +6,8 @@
 <head>
 <!-- Basic -->
 <meta charset="utf-8">
-<title>在线编程书库</title>
-<meta name="Description" content="在线 免费 简明 编程 语言"/>
+<title>在线开发教程</title>
+<meta name="Description" content="在线 免费 编程 语言"/>
 <style>
 .send18bg { background:#d6d6d6; width: 100%; margin:0 auto; padding: 20px 0 30px 0;}
 .send18bg h2 {color:#424242!important; text-align:center;}
@@ -19,7 +19,7 @@
 .fa-briefcase:before {content:"\f0b1"; font-family:'FontAwesome'; font-style:normal; font-weight:normal; font-size:100%;}
 .fa-icons{font-size:120%; color:#4F4F42; position:relative; top:3px; padding:0px 10px 0px 0px;}
 </style>
-<base href="https://www.tutorialspoint.com/" />
+<base href="http://127.0.0.1:8080/" />
 <link rel="shortcut icon" href="/static/img/r-letter.png" type="image/x-icon" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
 <meta property="og:locale" content="en_US" />
@@ -30,8 +30,8 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="author" content="tutorialspoint.com">
-<script type="text/javascript" src="https://www.tutorialspoint.com/theme/js/script-min-v4.js"></script>
-<link rel="stylesheet" href="https://www.tutorialspoint.com/theme/css/style-min.css">
+<script type="text/javascript" src="/static/js/script-min-v4.js"></script>
+<link rel="stylesheet" href="/static/theme/css/style-min.css">
 <!-- Head Libs -->
 <!--[if IE 8]>
 <link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
@@ -73,81 +73,43 @@ $(document).ready(function() {
 <body onload="prettyPrint()">
 <div class="wrapLoader">
    <div class="imgLoader">
-      <img  src="/images/loading-cg.gif" alt="" width="70" height="70" />
+      <img  src="/static/img/loading-cg.gif" alt="" width="70" height="70" />
    </div>
 </div>
 <header>
    <div class="container">			
       <h1 class="logo">
-      <a href="index.htm" title="tutorialspoint">
-      <img alt="tutorialspoint" src="/green/images/logo.png">
+      <a href="index.htm" title="在线开发教程">
+      <img alt="tutorialspoint" src="/static/img/logo.jpg">
       </a>
       </h1>			
-      <nav>
-         <ul class="nav nav-pills nav-top">
-            <li><a href="/about/about_careers.htm" style="background: #fffb09; font-weight: bold;"><i class="icon icon-suitcase"></i> Jobs</a></li>
-            <li> <a href="http://www.sendfiles.net"><i class="fa fa-send"></i> &nbsp;SENDFiles</a> </li>
-            <li> <a href="https://www.tutorialspoint.com/whiteboard.htm"><img src="theme/css/icons/image-editor.png" alt="Whiteboard" title="Whiteboard"> &nbsp;Whiteboard</a> </li>
-            <li> <a href="https://www.tutorialspoint.com/netmeeting.php"><i class="fa-camera"></i> &nbsp;Net Meeting</a> </li>
-            <li> <a href="/online_dev_tools.htm"> <i class="dev-tools-menu" style="opacity:.5"></i> Tools </a> </li>
-            <li> <a href="/articles/index.php"><i class="icon icon-file-text-o"></i> &nbsp;Articles</a> </li>            
-            <li class="top-icons">
-              <ul class="social-icons">
-              <li class="facebook"><a href="https://www.facebook.com/tutorialspointindia" target="_blank" data-placement="bottom" title="tutorialspoint @ Facebook">Facebook</a></li>
-              <li class="googleplus"><a href="https://plus.google.com/u/0/116678774017490391259/posts" target="_blank" data-placement="bottom" title="tutorialspoint @ Google+">Google+</a></li>
-              <li class="twitter"><a href="https://www.twitter.com/tutorialspoint" target="_blank" data-placement="bottom" title="tutorialspoint @ Twitter">Twitter</a></li>
-              <li class="linkedin"><a href="https://www.linkedin.com/company/tutorialspoint" target="_blank" data-placement="bottom" title="tutorialspoint @ Linkedin">Linkedin</a></li>
-              <li class="youtube"><a href="https://www.youtube.com/channel/UCVLbzhxVTiTLiVKeGV7WEBg" target="_blank" data-placement="bottom" title="tutorialspoint YouTube">YouTube</a></li>
-              </ul>
-           </li>
-         </ul>
-      </nav>
          <!-- search code here  --> 
       <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse" id="pull" style="top: 24px!important"> <i class="icon icon-bars"></i> </button>
    </div>
-  
-   <div class="navbar nav-main">
-      <div class="container">
-         <nav class="nav-main mega-menu">
-            <ul class="nav nav-pills nav-main" id="mainMenu">
-               <li class="dropdown no-sub-menu"> <a class="dropdown" href="index.htm"><i class="icon icon-home"></i> Home</a> </li>   
-               <li class="dropdown" id="liTL"><a class="dropdown" href="javascript:void(0);"><span class="tut-lib"> Tutorials Library <i class="fa-caret-down"></i></span></a></li>
-               <li class="dropdown no-sub-menu"><a class="dropdown" href="codingground.htm"><i class="fa-code"></i> Coding Ground </a> </li>
-               <li class="dropdown no-sub-menu"><a class="dropdown" href="tutor_connect/index.php"><i class="fa-user"> </i> Tutor Connect</a></li>
-               <li class="dropdown no-sub-menu"><a class="dropdown" href="videotutorials/index.htm"><i class="fa-toggle-right"></i> Videos </a></li>
-               <li class="dropdown no-sub-menu">
-                  <div class="searchform-popup">
-                     <input class="header-search-box" type="text" id="search-string" name="q" placeholder="Search your favorite tutorials..." onfocus="if (this.value == 'Search your favorite tutorials...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search your favorite tutorials...';}" autocomplete="off">
-                     <div class="magnifying-glass"><i class="icon-search"></i> Search </div>
-                 </div>
-               </li>
-            </ul>
-         </nav>
-         <div class="submenu-item sub-main-menu" id="top-sub-menu"></div>
-         
-      </div>
-   </div>	
+	
 </header>
 <div style="clear:both;"></div>
 
 <div id="global">
+<!--
 <div id="tutorialslibrary">
-<h1 class="thick-heading">|| 在线开发库 ||</h1>
-<h4 class="center" style="font-size:20px; position:relative;">免费在线开发书籍 &amp; 代码&amp; 工具</h4>
+<h1 class="thick-heading">|| 在线开发教程 ||</h1>
+<h4 class="center" style="font-size:20px; position:relative;">免费在线开发书籍 &amp; 文章</h4>
 </div>
+-->
 <div class="container">
 <div class="row featured-boxes">
 <div class="col-md-3">
 <div class="featured-box">
 
-<h4>Databases</h4>
+<h4>数据库</h4>
 <ul class="menu" id="database_tutorials" data-href="database_tutorials.htm">
 <li><a  href="/mongodb/index.htm" title="Learn MongoDB">Learn MongoDB</a></li>
 <li><a  href="/mysql/index.htm" title="Learn MySQL">Learn MySQL</a></li>
 <li><a  href="/redis/index.htm" title="Learn Redis">Learn Redis</a></li>
 </ul>
 
-<h4>Sports</h4>
+<h4>运动</h4>
 <ul class="menu" id="sports_tutorials" data-href="sports_tutorials.htm">
 <li><a  href="/swimming/index.htm" title="Swimming">Swimming</a></li>
 <li><a  href="/tennis/index.htm" title="Tennis">Tennis</a></li>
@@ -157,7 +119,7 @@ $(document).ready(function() {
 </div>
 <div class="col-md-3">
 <div class="featured-box">
-<h4>Computer Programming</h4>
+<h4>编程语言</h4>
 <ul class="menu" id="computer_programming" data-href="computer_programming_tutorials.htm">
 <li><a  href="/go/index.htm" title="Learn Go Programing">Learn Go Programing</a></li>
 <li><a  href="/learn_c_by_examples/index.htm" title="Learn C by Examples">Learn C by Examples</a></li>
@@ -167,7 +129,7 @@ $(document).ready(function() {
 </div>
 <div class="col-md-3">
 <div class="featured-box">
-<h4>Web Development</h4>
+<h4>Web 开发</h4>
 <ul class="menu" id="web_development" data-href="web_development_tutorials.htm">
 <li><a  href="/css/index.htm" title="Learn CSS">Learn CSS</a></li>
 <li><a  href="/html/index.htm" title="Learn HTML">Learn HTML</a></li>
@@ -193,7 +155,7 @@ $(document).ready(function() {
 </div>
 
 </footer>
-<script type="text/javascript" src="/theme/js/custom-min.js"></script>
+<script type="text/javascript" src="/static/theme/js/custom-min.js"></script>
 <script src="https://www.google-analytics.com/urchin.js">
 </script>
 <script type="text/javascript">
