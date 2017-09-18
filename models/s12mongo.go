@@ -35,7 +35,7 @@ func (m *S12Mongo) Init() {
 		"s12mongodburl:", m.dbUrl, "s12mgosessionnum:", m.mgoSessionNum)
 
 	m.MyMongo.Init()
-	m.ensureFamilyInfoIndex()
+	//m.ensureFamilyInfoIndex()
 
 }
 
@@ -75,6 +75,7 @@ func (m *S12Mongo) ensureFamilyInfoIndex() error {
 			DropDups:   false,
 			Background: true,
 			Sparse:     true,
+			Name:       "uuid_1_familyid_1",
 		}
 
 		err = c.EnsureIndex(index)
