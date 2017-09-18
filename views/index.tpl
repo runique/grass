@@ -19,7 +19,7 @@
 .fa-briefcase:before {content:"\f0b1"; font-family:'FontAwesome'; font-style:normal; font-weight:normal; font-size:100%;}
 .fa-icons{font-size:120%; color:#4F4F42; position:relative; top:3px; padding:0px 10px 0px 0px;}
 </style>
-<base href="http://127.0.0.1:8080/" />
+<base href="http://10.20.110.33:8080/" />
 <link rel="shortcut icon" href="/static/img/r-letter.png" type="image/x-icon" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
 <meta property="og:locale" content="en_US" />
