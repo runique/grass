@@ -32,7 +32,7 @@ type MyHandler struct{}
 
 var mux map[string]func(http.ResponseWriter, *http.Request)
 
-func initAndStartHttp() {
+func initAndStartS12Http() {
 	server := http.Server{
 		Addr: fmt.Sprintf(":%d", 8081),
 		/* Maybe will set the two fields sometime
@@ -64,7 +64,7 @@ func main() {
 
 	InitS12Mongo()
 
-	initAndStartHttp()
+	initAndStartS12Http()
 
 	SetRlimit()
 

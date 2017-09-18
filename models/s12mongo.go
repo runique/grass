@@ -35,6 +35,8 @@ func (m *S12Mongo) Init() {
 		"s12mongodburl:", m.dbUrl, "s12mgosessionnum:", m.mgoSessionNum)
 
 	m.MyMongo.Init()
+	m.ensureFamilyInfoIndex()
+
 }
 
 func (m *S12Mongo) getSession() (*mgo.Session, error) {
@@ -51,6 +53,71 @@ func (m *S12Mongo) getSession() (*mgo.Session, error) {
 func (m *S12Mongo) yieldMdbSession(session *mgo.Session, err error, beginTm time.Time) {
 	m.MyMongo.yieldMdbSession(session)
 	StatDbReq(GetFuncName(2), err == nil, beginTm)
+}
+
+func (m *S12Mongo) ensureFamilyInfoIndex() error {
+	session, err := m.getSession()
+	if err != nil {
+		fmt.Println(err)
+		return err
+	}
+	beginTm := time.Now()
+	defer m.yieldMdbSession(session, err, beginTm)
+
+	c := session.DB(s12db).C(familyinfo)
+
+	keys := []string{"uuid", "familyid"}
+
+	for _, key := range keys {
+		index := mgo.Index{
+			Key:        []string{key},
+			Unique:     true,
+			DropDups:   false,
+			Background: true,
+			Sparse:     true,
+		}
+
+		err = c.EnsureIndex(index)
+		if err != nil {
+			panic(err)
+		}
+	}
+
+	return nil
+}
+
+func (m *S12Mongo) ensureFamilyInfoIndex2() error {
+	session, err := m.getSession()
+	if err != nil {
+		fmt.Println(err)
+		return err
+	}
+	beginTm := time.Now()
+	defer m.yieldMdbSession(session, err, beginTm)
+
+	db := session.DB(s12db)
+
+	result := bson.M{}
+
+	cmd := `  {
+	       createIndexes: "familyinfo",
+	       indexes: [
+	           {
+	               key: {
+	   		"uuid" : 1,
+	   		"familyid" : 1
+	               }
+	           }
+	       ]
+	     }`
+
+	err = db.Run(cmd, &result)
+	if err != nil {
+		beego.Error(err)
+		return err
+	}
+
+	return nil
 }
 
 func (m *S12Mongo) SaveFamilyInfo(familyId int, bs map[string]interface{}) error {
