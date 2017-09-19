@@ -45,6 +45,8 @@ func initAndStartS12Http() {
 	mux = make(map[string]func(http.ResponseWriter, *http.Request))
 
 	mux["/grass/setfamilyinfo"] = SetFamilyInfoByPost2
+	mux["/grass/getfamilyinfo"] = GetFamilyInfoByPost
+	mux["/grass/settransferflag"] = SetTransferFlagByPost
 
 	go server.ListenAndServe()
 }

@@ -10,6 +10,7 @@ import (
 
 	"gopkg.in/mgo.v2-unstable/bson"
 
+	"errors"
 	"io/ioutil"
 	"net/http"
 )
@@ -51,7 +52,6 @@ func (this *S12Controller) SendGeneralRsp(retCode int, desc string) {
 
 func (this *S12Controller) SetFamilyInfoByPost() {
 	//beego.Info("Inside SetFamilyInfoByPost()")
-	//beego.Info("sessionOn:", beego.AppConfig.String("sessionon"))
 
 	var err error
 
@@ -139,6 +139,158 @@ func SetFamilyInfoByPost2(w http.ResponseWriter, r *http.Request) {
 	}
 
 	SendGeneralRsp2(0, "OK", w)
+}
+
+func GetFamilyInfoByPost(w http.ResponseWriter, r *http.Request) {
+	//beego.Info("Inside GetFamilyInfo1()")
+
+	var err error
+	var groupId, familyId int
+	var uuid string
+
+	defer func() {
+		if err != nil {
+			beego.Error(err)
+			SendGeneralRsp2(-1, fmt.Errorf("Get family-info(groupid:%d, uuid:%s, familyId:%d) failed:%s",
+				groupId, uuid, familyId, err.Error()).Error(), w)
+		}
+	}()
+
+	var httpBody []byte
+	httpBody, err = ioutil.ReadAll(r.Body)
+	if err != nil {
+		beego.Error(err)
+		return
+	}
+
+	var bdoc interface{}
+	err = bson.UnmarshalJSON(httpBody, &bdoc)
+	if err != nil {
+		return
+	}
+
+	bs := bdoc.(map[string]interface{})
+
+	if _, ok := bs["groupid"]; ok {
+		groupId = int(bs["groupid"].(float64))
+
+		if _, ok = bs["familyid"]; !ok {
+			beego.Error("No familyid field in json!")
+			err = errors.New("No familyid field in json!")
+			return
+		}
+
+		familyId = int(bs["familyid"].(float64))
+
+		familyInfo2 := &FamilyInfo2{}
+
+		familyInfo2, err = MyS12Mongo.GetByGroupIdFamilyId(groupId, familyId)
+		if err != nil {
+			return
+		}
+
+		var bs []byte
+		bs, err = json.Marshal(familyInfo2)
+		if err != nil {
+		} else {
+			w.Write(bs)
+		}
+
+	} else {
+		if _, ok = bs["uuid"]; !ok {
+			beego.Error("No uuid field in json!")
+			err = errors.New("No uuid field in json!")
+			return
+		}
+
+		uuid = bs["uuid"].(string)
+
+		var familyInfoLst []FamilyInfo1
+
+		familyInfoLst, err = MyS12Mongo.GetByUuid(uuid)
+		if err != nil {
+			return
+		}
+
+		var bs []byte
+		bs, err = json.Marshal(familyInfoLst)
+		if err != nil {
+		} else {
+			w.Write(bs)
+		}
+	}
+}
+
+func SetTransferFlagByPost(w http.ResponseWriter, r *http.Request) {
+	//beego.Info("Inside SetTransferFlagByPost()")
+
+	var err error
+	var groupId, familyId int
+	var uuid string
+
+	defer func() {
+		if err != nil {
+			beego.Error(err)
+			SendGeneralRsp2(-1, fmt.Errorf("Get family-info(groupid:%d, uuid:%s, familyId:%d) failed:%s",
+				groupId, uuid, familyId, err.Error()).Error(), w)
+		}
+	}()
+
+	var httpBody []byte
+	httpBody, err = ioutil.ReadAll(r.Body)
+	if err != nil {
+		beego.Error(err)
+		return
+	}
+
+	var bdoc interface{}
+	err = bson.UnmarshalJSON(httpBody, &bdoc)
+	if err != nil {
+		return
+	}
+
+	bs := bdoc.(map[string]interface{})
+
+	if _, ok := bs["groupid"]; ok {
+		groupId = int(bs["groupid"].(float64))
+
+		if _, ok = bs["familyid"]; !ok {
+			beego.Error("No familyid field in json!")
+			err = errors.New("No familyid field in json!")
+			return
+		}
+
+		familyId = int(bs["familyid"].(float64))
+
+		err = MyS12Mongo.SetTransferFlagByGroup(groupId, familyId)
+		if err != nil {
+			return
+		}
+
+	} else {
+		if _, ok = bs["uuid"]; !ok {
+			beego.Error("No uuid field in json!")
+			err = errors.New("No uuid field in json!")
+			return
+		}
+
+		if _, ok = bs["familyid"]; !ok {
+			beego.Error("No familyid field in json!")
+			err = errors.New("No familyid field in json!")
+			return
+		}
+
+		uuid = bs["uuid"].(string)
+		familyId = int(bs["familyid"].(float64))
+
+		err = MyS12Mongo.SetTransferFlagByUuid(uuid, familyId)
+		if err != nil {
+			return
+		}
+	}
+
+	SendGeneralRsp2(0, "OK", w)
+
 }
 
 func SendGeneralRsp2(retCode int, desc string, w http.ResponseWriter) {
