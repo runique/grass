@@ -121,7 +121,7 @@ func (m *S12Mongo) ensureFamilyInfoIndex2() error {
 	return nil
 }
 
-func (m *S12Mongo) SaveFamilyInfo(familyId int, bs map[string]interface{}) error {
+func (m *S12Mongo) SaveFamilyInfo(groupId, familyId int, bs map[string]interface{}) error {
 	session, err := m.getSession()
 	if err != nil {
 		return nil
@@ -131,7 +131,7 @@ func (m *S12Mongo) SaveFamilyInfo(familyId int, bs map[string]interface{}) error
 
 	c := session.DB(s12db).C(familyinfo)
 
-	colQuerier := bson.M{"familyid": familyId}
+	colQuerier := bson.M{"groupid": groupId, "familyid": familyId}
 
 	change := bson.M{"$set": bs}
 
@@ -155,7 +155,7 @@ func (m *S12Mongo) SaveUuidInfo(uuid string, familyId int, bs map[string]interfa
 
 	c := session.DB(s12db).C(uuidinfo)
 
-	colQuerier := bson.M{"familyid": familyId}
+	colQuerier := bson.M{"uuid": uuid, "familyid": familyId}
 
 	change := bson.M{"$set": bs}
 

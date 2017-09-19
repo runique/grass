@@ -73,9 +73,10 @@ func (this *S12Controller) SetFamilyInfoByPost() {
 	bs := bdoc.(map[string]interface{})
 
 	if _, ok := bs["groupid"]; ok {
+		groupId := int(bs["groupid"].(float64))
 		familyId := int(bs["familyid"].(float64))
 
-		err = MyS12Mongo.SaveFamilyInfo(familyId, bs)
+		err = MyS12Mongo.SaveFamilyInfo(groupId, familyId, bs)
 		if err != nil {
 			return
 		}
@@ -120,9 +121,10 @@ func SetFamilyInfoByPost2(w http.ResponseWriter, r *http.Request) {
 	bs := bdoc.(map[string]interface{})
 
 	if _, ok := bs["groupid"]; ok {
+		groupId := int(bs["groupid"].(float64))
 		familyId := int(bs["familyid"].(float64))
 
-		err = MyS12Mongo.SaveFamilyInfo(familyId, bs)
+		err = MyS12Mongo.SaveFamilyInfo(groupId, familyId, bs)
 		if err != nil {
 			return
 		}

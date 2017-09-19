@@ -139,13 +139,11 @@ func importFamilyInfo(url string, fileName string) {
 
 	for fscanner.Scan() {
 		str := fscanner.Text()
-		fmt.Println(str)
+		//fmt.Println(str)
 		_, _, err := postHttp(&url, []byte(str), true)
 		if err != nil {
 			panic(err)
 		}
-
-		time.Sleep(10000 * time.Second)
 
 		importedRecordNum++
 	}
@@ -161,7 +159,7 @@ func init() {
 func main() {
 	initLog()
 
-	grassUrl := flag.String("server", "http://10.20.110.33:8080", "The http server to which family-info imported")
+	grassUrl := flag.String("server", "http://10.20.110.33:8081", "The http server to which family-info imported")
 	fileName := flag.String("file", "group47.family", "The file to be imported")
 
 	flag.Parse()
