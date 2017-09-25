@@ -1,0 +1,549 @@
+<!doctype html> 
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]> <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]> <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]> <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Go Functions</title>
+<meta name="description" content="Go Functions - Learn Go Library in simple and easy steps starting from Overview, Environment Setup, Program Structure, Basic Syntax, Data Types, Variables, Constants, Operators, Decision Making, Loops, Functions, Scope Rules, Arrays, Pointers, Structures, Slice, Range, Maps, Recursion, Type Casting, Interfaces, Error Handling." />
+<meta name="keywords" content="Overview, Environment Setup, Program Structure, Basic Syntax, Data Types, Variables, Constants, Operators, Arithmetic Operators, Relational Operators, Logical Operators, Bitwise Operators, Miscellaneous Operators, Operators Precedence, Decision Making, if statement, if...else statement, nested if statements, switch statement, select statement, Loops, for Loop, nested for Loops, break statement, continue statement, goto statement, Functions, Call by value, Call by reference, functions as values, function closure, method, Scope Rules, Arrays, Multi-dimensional arrays, Passing arrays to functions, Pointers, Array of pointers, Pointer to pointer, Passing pointers to functions, Structures, Structure as function arguments, pointers to structures, Slice, Sub-slicing, copy() and append() functions, Range, Maps, Recursion, Type Casting, Interfaces, Error Handling." />
+<base href="https://www.tutorialspoint.com/" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="fb:app_id" content="471319149685276" />
+<meta property="og:site_name" content="www.tutorialspoint.com" />
+<meta name="robots" content="index, follow"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="author" content="tutorialspoint.com">
+<script type="text/javascript" src="https://www.tutorialspoint.com/theme/js/script-min-v4.js"></script>
+<link rel="stylesheet" href="https://www.tutorialspoint.com/theme/css/style-min.css">
+<!-- Head Libs -->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+pre.prettyprint.tryit {min-height:37px; background: #eee url(/go/images/try-it.jpg) top right no-repeat !important}select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+ul.nav-list.primary>li a.videolink{    background: none; margin: 0px; padding: 0px; border: 1px solid #d6d6d6;}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #74cddd url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #74cddd !important;}
+.submenu-item{ border-bottom: 2px solid #74cddd !important; border-top: 2px solid #74cddd !important }
+.ace_scroller{overflow: auto!important;}
+</style>
+<script>
+$(document).ready(function() {
+  $('input[name="q"]').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+</script>
+</head>
+<body onload="prettyPrint()">
+<div class="wrapLoader">
+   <div class="imgLoader">
+      <img  src="/images/loading-cg.gif" alt="" width="70" height="70" />
+   </div>
+</div>
+<header>
+   <div class="container">			
+      <h1 class="logo">
+      <a href="index.htm" title="tutorialspoint">
+      <img alt="tutorialspoint" src="/go/images/logo.png">
+      </a>
+      </h1>			
+      <nav>
+         <ul class="nav nav-pills nav-top">
+            <li><a href="/about/about_careers.htm" style="background: #fffb09; font-weight: bold;"><i class="icon icon-suitcase"></i> Jobs</a></li>
+            <li> <a href="http://www.sendfiles.net"><i class="fa fa-send"></i> &nbsp;SENDFiles</a> </li>
+            <li> <a href="https://www.tutorialspoint.com/whiteboard.htm"><img src="theme/css/icons/image-editor.png" alt="Whiteboard" title="Whiteboard"> &nbsp;Whiteboard</a> </li>
+            <li> <a href="https://www.tutorialspoint.com/netmeeting.php"><i class="fa-camera"></i> &nbsp;Net Meeting</a> </li>
+            <li> <a href="/online_dev_tools.htm"> <i class="dev-tools-menu" style="opacity:.5"></i> Tools </a> </li>
+            <li> <a href="/articles/index.php"><i class="icon icon-file-text-o"></i> &nbsp;Articles</a> </li>            
+            <li class="top-icons">
+              <ul class="social-icons">
+              <li class="facebook"><a href="https://www.facebook.com/tutorialspointindia" target="_blank" data-placement="bottom" title="tutorialspoint @ Facebook">Facebook</a></li>
+              <li class="googleplus"><a href="https://plus.google.com/u/0/116678774017490391259/posts" target="_blank" data-placement="bottom" title="tutorialspoint @ Google+">Google+</a></li>
+              <li class="twitter"><a href="https://www.twitter.com/tutorialspoint" target="_blank" data-placement="bottom" title="tutorialspoint @ Twitter">Twitter</a></li>
+              <li class="linkedin"><a href="https://www.linkedin.com/company/tutorialspoint" target="_blank" data-placement="bottom" title="tutorialspoint @ Linkedin">Linkedin</a></li>
+              <li class="youtube"><a href="https://www.youtube.com/channel/UCVLbzhxVTiTLiVKeGV7WEBg" target="_blank" data-placement="bottom" title="tutorialspoint YouTube">YouTube</a></li>
+              </ul>
+           </li>
+         </ul>
+      </nav>
+         <!-- search code here  --> 
+      <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse" id="pull" style="top: 24px!important"> <i class="icon icon-bars"></i> </button>
+   </div>
+  
+   <div class="navbar nav-main">
+      <div class="container">
+         <nav class="nav-main mega-menu">
+            <ul class="nav nav-pills nav-main" id="mainMenu">
+               <li class="dropdown no-sub-menu"> <a class="dropdown" href="index.htm"><i class="icon icon-home"></i> Home</a> </li>   
+               <li class="dropdown" id="liTL"><a class="dropdown" href="javascript:void(0);"><span class="tut-lib"> Tutorials Library <i class="fa-caret-down"></i></span></a></li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="codingground.htm"><i class="fa-code"></i> Coding Ground </a> </li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="tutor_connect/index.php"><i class="fa-user"> </i> Tutor Connect</a></li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="videotutorials/index.htm"><i class="fa-toggle-right"></i> Videos </a></li>
+               <li class="dropdown no-sub-menu">
+                  <div class="searchform-popup">
+                     <input class="header-search-box" type="text" id="search-string" name="q" placeholder="Search your favorite tutorials..." onfocus="if (this.value == 'Search your favorite tutorials...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search your favorite tutorials...';}" autocomplete="off">
+                     <div class="magnifying-glass"><i class="icon-search"></i> Search </div>
+                 </div>
+               </li>
+            </ul>
+         </nav>
+         <div class="submenu-item sub-main-menu" id="top-sub-menu"></div>
+         
+      </div>
+   </div>	
+</header>
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+<div class="col-md-2">
+<aside class="sidebar">
+<style>
+.ts {
+   text-align:center !important;
+   vertical-align: middle !important;
+}
+</style>
+<div class="mini-logo">
+<img src="/go/images/go-mini-logo.jpg" alt="Go Tutorial" />
+</div>
+<ul class="nav nav-list primary left-menu">
+<li class="heading">Go Tutorial</li>
+<li><a href="/go/index.htm">Go - Home</a></li>
+<li><a href="/go/go_overview.htm">Go - Overview</a></li>
+<li><a href="/go/go_environment.htm">Go - Environment Setup</a></li>
+<li><a href="/go/go_program_structure.htm">Go - Program Structure</a></li>
+<li><a href="/go/go_basic_syntax.htm">Go - Basic Syntax</a></li>
+<li><a href="/go/go_data_types.htm">Go - Data Types</a></li>
+<li><a href="/go/go_variables.htm">Go - Variables</a></li>
+<li><a href="/go/go_constants.htm">Go - Constants</a></li>
+<li><a href="/go/go_operators.htm">Go - Operators</a></li>
+<li><a href="/go/go_decision_making.htm">Go - Decision Making</a></li>
+<li><a href="/go/go_loops.htm">Go - Loops</a></li>
+<li><a href="/go/go_functions.htm">Go - Functions</a></li>
+<li><a href="/go/go_scope_rules.htm">Go - Scope Rules</a></li>
+<li><a href="/go/go_strings.htm">Go - Strings</a></li>
+<li><a href="/go/go_arrays.htm">Go - Arrays</a></li>
+<li><a href="/go/go_pointers.htm">Go - Pointers</a></li>
+<li><a href="/go/go_structures.htm">Go - Structures</a></li>
+<li><a href="/go/go_slice.htm">Go - Slice</a></li>
+<li><a href="/go/go_range.htm">Go - Range</a></li>
+<li><a href="/go/go_maps.htm">Go - Maps</a></li>
+<li><a href="/go/go_recursion.htm">Go - Recursion</a></li>
+<li><a href="/go/go_type_casting.htm">Go - Type Casting</a></li>
+<li><a href="/go/go_interfaces.htm">Go - Interfaces</a></li>
+<li><a href="/go/go_error_handling.htm">Go - Error Handling</a></li>
+<li class="heading">Go Useful Resources</li>
+<li><a href="/go/go_questions_answers.htm">Go - Questions and Answers</a></li>
+<li><a href="/go/go_quick_guide.htm">Go - Quick Guide</a></li>
+<li><a href="/go/go_useful_resources.htm">Go - Useful Resources</a></li>
+<li><a href="/go/go_discussion.htm">Go - Discussion</a></li>
+</ul>
+<ul class="nav nav-list primary push-bottom left-menu special">
+<li class="sreading">Selected Reading</li>
+<li><a target="_top" href="/developers_best_practices/index.htm">Developer's Best Practices</a></li>
+<li><a target="_top" href="/questions_and_answers.htm">Questions and Answers</a></li>
+<li><a target="_top" href="/effective_resume_writing.htm">Effective Resume Writing</a></li>
+<li><a target="_top" href="/hr_interview_questions/index.htm">HR Interview Questions</a></li>
+<li><a target="_top" href="/computer_glossary.htm">Computer Glossary</a></li>
+<li><a target="_top" href="/computer_whoiswho.htm">Who is Who</a></li>
+</ul>
+ </aside>
+</div>
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+<div class="col-md-7 middle-col">
+<h1>Go - Functions</h1>
+<div class="topgooglead">
+<hr />
+<div style="padding-bottom:5px;padding-left:10px;">Advertisements</div>
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 468;
+google_ad_height = 60;
+google_ad_format = "468x60_as";
+google_ad_type = "image";
+google_ad_channel = "";
+//--></script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js"> 
+</script>
+</div>
+<hr />
+<div class="pre-btn">
+<a href="/go/go_loops.htm"><i class="icon icon-arrow-circle-o-left big-font"></i> Previous Page</a>
+</div>
+<div class="nxt-btn">
+<a href="/go/go_scope_rules.htm">Next Page <i class="icon icon-arrow-circle-o-right big-font"></i>&nbsp;</a>
+</div>
+<div class="clearer"></div>
+<hr />
+<p>A function is a group of statements that together perform a task. Every Go program has at least one function, which is <b>main()</b>. You can divide your code into separate functions. How you divide your code among different functions is up to you, but logically, the division should be such that each function performs a specific task.</p>
+<p>A function <b>declaration</b> tells the compiler about a function name, return type, and parameters. A function <b>definition</b> provides the actual body of the function.</p>
+<p>The Go standard library provides numerous built-in functions that your program can call. For example, the function <b>len()</b> takes arguments of various types and returns the length of the type. If a string is passed to it, the function returns the length of the string in bytes. If an array is passed to it, the function returns the length of the array.</p>
+<p>Functions are also known as <b>method, sub-routine</b>, or <b>procedure</b>.</p>
+<h2>Defining a Function</h2>
+<p>The general form of a function definition in Go programming language is as follows &minus;</p>
+<pre class="result notranslate">
+func function_name( [parameter list] ) [return_types]
+{
+   body of the function
+}
+</pre>
+<p>A function definition in Go programming language consists of a <i>function header</i> and a <i>function body</i>. Here are all the parts of a function &minus;</p>
+<ul class="list">
+<li><p><b>Func</b> &minus; It starts the declaration of a function.</p></li>
+<li><p><b>Function Name</b> &minus; It is the actual name of the function. The function name and the parameter list together constitute the function signature.</p></li>
+<li><p><b>Parameters</b> &minus; A parameter is like a placeholder. When a function is invoked, you pass a value to the parameter. This value is referred to as actual parameter or argument. The parameter list refers to the type, order, and number of the parameters of a function. Parameters are optional; that is, a function may contain no parameters.</p></li>
+<li><p><b>Return Type</b> &minus; A function may return a list of values. The return_types is the list of data types of the values the function returns. Some functions perform the desired operations without returning a value. In this case, the return_type is the not required.</p></li>
+<li><p><b>Function Body</b> &minus; It contains a collection of statements that define what the function does.</p></li>
+</ul>
+<h2>Example</h2>
+<p>The following source code shows a function called <b>max()</b>. This function takes two parameters num1 and num2 and returns the maximum between the two &minus;</p>
+<pre class="prettyprint notranslate">
+/* function returning the max between two numbers */
+func max(num1, num2 int) int {
+   /* local variable declaration */
+   result int
+
+   if (num1 &gt; num2) {
+      result = num1
+   } else {
+      result = num2
+   }
+   return result 
+}
+</pre>
+<h2>Calling a Function</h2>
+<p>While creating a Go function, you give a definition of what the function has to do. To use a function, you will have to call that function to perform the defined task.</p>
+<p>When a program calls a function, the program control is transferred to the called function. A called function performs a defined task and when its return statement is executed or when its function-ending closing brace is reached, it returns the program control back to the main program.</p>
+<p>To call a function, you simply need to pass the required parameters along with its function name. If the function returns a value, then you can store the returned value. For example &minus;</p>
+<pre class="prettyprint notranslate tryit">
+package main
+
+import "fmt"
+
+func main() {
+   /* local variable definition */
+   var a int = 100
+   var b int = 200
+   var ret int
+
+   /* calling a function to get max value */
+   ret = max(a, b)
+
+   fmt.Printf( "Max value is : %d\n", ret )
+}
+
+/* function returning the max between two numbers */
+func max(num1, num2 int) int {
+   /* local variable declaration */
+   var result int
+
+   if (num1 &gt; num2) {
+      result = num1
+   } else {
+      result = num2
+   }
+   return result 
+}
+</pre>
+<p>We have kept the max() function along with the main() function and compiled the source code. While running the final executable, it would produce the following result &minus;</p>
+<pre class="result notranslate">
+Max value is : 200
+</pre>
+<h2>Returning multiple values from Function</h2>
+<p>A Go function can return multiple values. For example &minus;</p>
+<pre class="prettyprint notranslate tryit">
+package main
+
+import "fmt"
+
+func swap(x, y string) (string, string) {
+   return y, x
+}
+func main() {
+   a, b := swap("Mahesh", "Kumar")
+   fmt.Println(a, b)
+}
+</pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">
+Kumar Mahesh
+</pre>
+<h2>Function Arguments</h2>
+<p>If a function is to use arguments, it must declare variables that accept the values of the arguments. These variables are called the <b>formal parameters</b> of the function.</p>
+<p>The formal parameters behave like other local variables inside the function and are created upon entry into the function and destroyed upon exit.</p>
+<p>While calling a function, there are two ways that arguments can be passed to a function &minus;</p>
+<table class="table table-bordered">
+<tr>
+<th style="width:30%; text-align:center;">Call Type</th>
+<th style="text-align:center;">Description</th>
+</tr>
+<tr>
+<td><a href="/go/go_function_call_by_value.htm" title="Function call by value in Go">Call by value</a></td>
+<td>This method copies the actual value of an argument into the formal parameter of the function. In this case, changes made to the parameter inside the function have no effect on the argument.</td> 
+</tr>
+<tr>
+<td><a href="/go/go_function_call_by_reference.htm" title="Function call by reference in Go">Call by reference</a></td>
+<td>This method copies the address of an argument into the formal parameter. Inside the function, the address is used to access the actual argument used in the call. This means that changes made to the parameter affect the argument.</td> </tr>
+</table>
+<p>By default, Go uses call by value to pass arguments. In general, it means the code within a function cannot alter the arguments used to call the function. The above program, while calling the max() function, used the same method.</p>
+<h2>Function Usage</h2>
+<p>A function can be used in the following ways:</p>
+<table class="table table-bordered">
+<tr>
+<th style="width:30%; text-align:center;">Function Usage</th>
+<th style="text-align:center;">Description</th>
+</tr>
+<tr>
+<td><a href="/go/go_function_as_values.htm" title="Function as values">Function as Value</a></td>
+<td>Functions can be created on the fly and can be used as values.</td>
+</tr>
+<tr>
+<td><a href="/go/go_function_closures.htm" title="Function Closures">Function Closures</a></td>
+<td>Functions closures are anonymous functions and can be used in dynamic programming.</td>
+</tr>
+<tr>
+<td><a href="/go/go_method.htm" title="Method">Method</a></td>
+<td>Methods are special functions with a receiver.</td>
+</tr>
+</table>
+<hr />
+<div class="pre-btn">
+<a href="/go/go_loops.htm"><i class="icon icon-arrow-circle-o-left big-font"></i> Previous Page</a>
+</div>
+<div class="print-btn center">
+<a href="/cgi-bin/printpage.cgi" target="_blank"><i class="icon icon-print big-font"></i> Print</a>
+</div>
+<div class="nxt-btn">
+<a href="/go/go_scope_rules.htm">Next Page <i class="icon icon-arrow-circle-o-right big-font"></i>&nbsp;</a>
+</div>
+<hr />
+<!-- PRINTING ENDS HERE -->
+<div class="bottomgooglead">
+<div class="bottomadtag">Advertisements</div>
+<script type="text/javascript"><!--
+var width = 580;
+var height = 400;
+var format = "580x400_as";
+if( window.innerWidth < 468 ){
+   width = 300;
+   height = 250;
+   format = "300x250_as";
+}
+google_ad_client = "pub-7133395778201029";
+google_ad_width = width;
+google_ad_height = height;
+google_ad_format = format;
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-3" id="rightbar">
+<div class="simple-ad">
+<a href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('https://www.facebook.com/sharer.php?u=' + 'http://www.tutorialspoint.com/go/go_functions.htm','sharer','toolbar=0,status=0,width=626,height=456,top='+sTop+',left='+sLeft);return false;">
+<img src="/images/facebookIcon.jpg" alt="img" />
+</a>
+<a  href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('https://twitter.com/share?url=' + 'http://www.tutorialspoint.com/go/go_functions.htm','sharer','toolbar=0,status=0,width=626,height=456,top='+sTop+',left='+sLeft);return false;">
+<img src="/images/twitterIcon.jpg" alt="img" />
+</a>
+<a  href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('https://www.linkedin.com/cws/share?url=' + 'http://www.tutorialspoint.com/go/go_functions.htm&amp;title='+ document.title,'sharer','toolbar=0,status=0,width=626,height=456,top='+sTop+',left='+sLeft);return false;">
+<img src="/images/linkedinIcon.jpg" alt="img" />
+</a>
+<a  href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('https://plus.google.com/share?url=http://www.tutorialspoint.com/go/go_functions.htm','sharer','toolbar=0,status=0,width=626,height=456,top='+sTop+',left='+sLeft);return false;">
+<img src="/images/googlePlusIcon.jpg" alt="img" />
+</a>
+<a  href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('https://www.stumbleupon.com/submit?url=http://www.tutorialspoint.com/go/go_functions.htm&amp;title='+ document.title,'sharer','toolbar=0,status=0,width=626,height=456,top='+sTop+',left='+sLeft);return false;">
+<img src="/images/StumbleUponIcon.jpg" alt="img" />
+</a>
+<a  href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('https://reddit.com/submit?url=http://www.tutorialspoint.com/go/go_functions.htm&amp;title='+ document.title,'sharer','toolbar=0,status=0,width=626,height=656,top='+sTop+',left='+sLeft);return false;">
+<img src="/images/reddit.jpg" alt="img" />
+</a>
+</div>
+<div class="rightgooglead">
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 300;
+google_ad_height = 250;
+google_ad_format = "300x250_as";
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+<div class="rightgooglead">
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 300;
+google_ad_height = 600;
+google_ad_format = "300x600_as";
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+<div class="rightgooglead">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-2537027957187252";
+/* Right Side Ad */
+google_ad_slot = "right_side_ad";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer-copyright">
+<div class="container">
+<div class="row">
+<div class="col-md-1">
+<a href="index.htm" class="logo"> <img alt="Tutorials Point" class="img-responsive" src="/scripts/img/logo-footer.png"> </a>
+</div>
+<div class="col-md-4 col-sm-12 col-xs-12">
+   <nav id="sub-menu">
+      <ul>
+         <li><a href="/about/tutorials_writing.htm">Write for us</a></li>
+         <li><a href="/about/faq.htm">FAQ's</a></li>
+         <li><a href="/about/about_helping.htm">Helping</a></li>
+         <li><a href="/about/contact_us.htm">Contact</a></li>
+      </ul>
+   </nav>
+</div>
+<div class="col-md-3 col-sm-12 col-xs-12">
+<p>&copy; Copyright 2017. All Rights Reserved.</p>
+</div>
+<div class="col-md-4 col-sm-12 col-xs-12">
+   <div class="news-group">
+      <input type="text" class="form-control-foot search" name="textemail" id="textemail" autocomplete="off" placeholder="Enter email for newsletter" onfocus="if (this.value == 'Enter email for newsletter...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Enter email for newsletter...';}">
+      <span class="input-group-btn"> <button class="btn btn-default btn-footer" id="btnemail" type="submit" onclick="javascript:void(0);">go</button> </span>
+      <div id="newsresponse"></div>
+   </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Libs -->
+<script type="text/javascript" src="/theme/js/custom-min.js?v=5"></script>
+<script src="https://www.google-analytics.com/urchin.js">
+</script>
+<script type="text/javascript">
+_uacct = "UA-232293-6";
+urchinTracker();
+$('.pg-icon').click(function(){
+   $('.wrapLoader').show();
+});
+</script>
+<script type="text/javascript" src="/theme/js/jquery.colorbox-min.js"></script>
+<script type="text/javascript">
+   var tryit = new $.TryIt('/go/try_go.php');
+   tryit.compile();
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Go Functions",
+    "name": "Go Functions",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.tutorialspoint.com/go/go_functions.htm"
+    },
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://www.tutorialspoint.com/go/images/go-mini-logo.jpg",
+        "width": 255,
+        "height": 194
+    },
+    "author": {
+        "@type": "Organization",
+        "name": "Tutorials Point",
+        "url": "https://www.tutorialspoint.com",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.tutorialspoint.com/images/logo60.png",
+            "width": 210,
+            "height": 60
+        }
+    },
+    "datePublished": "August 15 2017 02:44:31.",
+    "dateModified": "August 15 2017 02:34:16.",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Tutorials Point",
+        "url": "https://www.tutorialspoint.com",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.tutorialspoint.com/images/logo60.png",
+            "width": 210,
+            "height": 60
+        }
+    },
+    "description": "A function is a group of statements that together perform a task. Every Go program has at least one function, which is main(). You can divide your code into separate functions. How you divide your code among different functions is up to you, but logically..."
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "name": "www.tutorialspoint.com",
+                "@id": "https://www.tutorialspoint.com"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "name": "Go",
+                "@id": "https://www.tutorialspoint.com/go"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "name": "Go - Functions"
+            }
+        }
+    ]
+}
+</script>
+</div>
+</body>
+</html>

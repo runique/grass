@@ -1,0 +1,824 @@
+<!doctype html> 
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]> <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]> <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]> <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Go Interview Questions</title>
+<meta name="description" content="Go Interview Questions - Learn Go Library in simple and easy steps starting from Overview, Environment Setup, Program Structure, Basic Syntax, Data Types, Variables, Constants, Operators, Decision Making, Loops, Functions, Scope Rules, Arrays, Pointers, Structures, Slice, Range, Maps, Recursion, Type Casting, Interfaces, Error Handling." />
+<meta name="keywords" content="Go, Tutorial, beginners, Overview, Environment Setup, Program Structure, Basic Syntax, Data Types, Variables, Constants, Operators, Arithmetic Operators, Relational Operators, Logical Operators, Bitwise Operators, Miscellaneous Operators, Operators Precedence, Decision Making, if statement, if...else statement, nested if statements, switch statement, select statement, Loops, for Loop, nested for Loops, break statement, continue statement, goto statement, Functions, Call by value, Call by reference, functions as values, function closure, method, Scope Rules, Arrays, Multi-dimensional arrays, Passing arrays to functions, Pointers, Array of pointers, Pointer to pointer, Passing pointers to functions, Structures, Structure as function arguments, pointers to structures, Slice, Sub-slicing, copy() and append() functions, Range, Maps, Recursion, Type Casting, Interfaces, Error Handling." />
+<base href="https://www.tutorialspoint.com/" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="fb:app_id" content="471319149685276" />
+<meta property="og:site_name" content="www.tutorialspoint.com" />
+<meta name="robots" content="index, follow"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="author" content="tutorialspoint.com">
+<script type="text/javascript" src="https://www.tutorialspoint.com/theme/js/script-min-v4.js"></script>
+<link rel="stylesheet" href="https://www.tutorialspoint.com/theme/css/style-min.css">
+<!-- Head Libs -->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+pre.prettyprint.tryit {min-height:37px; background: #eee url(/go/images/try-it.jpg) top right no-repeat !important}select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+ul.nav-list.primary>li a.videolink{    background: none; margin: 0px; padding: 0px; border: 1px solid #d6d6d6;}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #74cddd url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #74cddd !important;}
+.submenu-item{ border-bottom: 2px solid #74cddd !important; border-top: 2px solid #74cddd !important }
+.ace_scroller{overflow: auto!important;}
+</style>
+<script>
+$(document).ready(function() {
+  $('input[name="q"]').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+</script>
+</head>
+<body onload="prettyPrint()">
+<div class="wrapLoader">
+   <div class="imgLoader">
+      <img  src="/images/loading-cg.gif" alt="" width="70" height="70" />
+   </div>
+</div>
+<header>
+   <div class="container">			
+      <h1 class="logo">
+      <a href="index.htm" title="tutorialspoint">
+      <img alt="tutorialspoint" src="/go/images/logo.png">
+      </a>
+      </h1>			
+      <nav>
+         <ul class="nav nav-pills nav-top">
+            <li><a href="/about/about_careers.htm" style="background: #fffb09; font-weight: bold;"><i class="icon icon-suitcase"></i> Jobs</a></li>
+            <li> <a href="http://www.sendfiles.net"><i class="fa fa-send"></i> &nbsp;SENDFiles</a> </li>
+            <li> <a href="https://www.tutorialspoint.com/whiteboard.htm"><img src="theme/css/icons/image-editor.png" alt="Whiteboard" title="Whiteboard"> &nbsp;Whiteboard</a> </li>
+            <li> <a href="https://www.tutorialspoint.com/netmeeting.php"><i class="fa-camera"></i> &nbsp;Net Meeting</a> </li>
+            <li> <a href="/online_dev_tools.htm"> <i class="dev-tools-menu" style="opacity:.5"></i> Tools </a> </li>
+            <li> <a href="/articles/index.php"><i class="icon icon-file-text-o"></i> &nbsp;Articles</a> </li>            
+            <li class="top-icons">
+              <ul class="social-icons">
+              <li class="facebook"><a href="https://www.facebook.com/tutorialspointindia" target="_blank" data-placement="bottom" title="tutorialspoint @ Facebook">Facebook</a></li>
+              <li class="googleplus"><a href="https://plus.google.com/u/0/116678774017490391259/posts" target="_blank" data-placement="bottom" title="tutorialspoint @ Google+">Google+</a></li>
+              <li class="twitter"><a href="https://www.twitter.com/tutorialspoint" target="_blank" data-placement="bottom" title="tutorialspoint @ Twitter">Twitter</a></li>
+              <li class="linkedin"><a href="https://www.linkedin.com/company/tutorialspoint" target="_blank" data-placement="bottom" title="tutorialspoint @ Linkedin">Linkedin</a></li>
+              <li class="youtube"><a href="https://www.youtube.com/channel/UCVLbzhxVTiTLiVKeGV7WEBg" target="_blank" data-placement="bottom" title="tutorialspoint YouTube">YouTube</a></li>
+              </ul>
+           </li>
+         </ul>
+      </nav>
+         <!-- search code here  --> 
+      <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse" id="pull" style="top: 24px!important"> <i class="icon icon-bars"></i> </button>
+   </div>
+  
+   <div class="navbar nav-main">
+      <div class="container">
+         <nav class="nav-main mega-menu">
+            <ul class="nav nav-pills nav-main" id="mainMenu">
+               <li class="dropdown no-sub-menu"> <a class="dropdown" href="index.htm"><i class="icon icon-home"></i> Home</a> </li>   
+               <li class="dropdown" id="liTL"><a class="dropdown" href="javascript:void(0);"><span class="tut-lib"> Tutorials Library <i class="fa-caret-down"></i></span></a></li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="codingground.htm"><i class="fa-code"></i> Coding Ground </a> </li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="tutor_connect/index.php"><i class="fa-user"> </i> Tutor Connect</a></li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="videotutorials/index.htm"><i class="fa-toggle-right"></i> Videos </a></li>
+               <li class="dropdown no-sub-menu">
+                  <div class="searchform-popup">
+                     <input class="header-search-box" type="text" id="search-string" name="q" placeholder="Search your favorite tutorials..." onfocus="if (this.value == 'Search your favorite tutorials...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search your favorite tutorials...';}" autocomplete="off">
+                     <div class="magnifying-glass"><i class="icon-search"></i> Search </div>
+                 </div>
+               </li>
+            </ul>
+         </nav>
+         <div class="submenu-item sub-main-menu" id="top-sub-menu"></div>
+         
+      </div>
+   </div>	
+</header>
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+<div class="col-md-2">
+<aside class="sidebar">
+<style>
+.ts {
+   text-align:center !important;
+   vertical-align: middle !important;
+}
+</style>
+<div class="mini-logo">
+<img src="/go/images/go-mini-logo.jpg" alt="Go Tutorial" />
+</div>
+<ul class="nav nav-list primary left-menu">
+<li class="heading">Go Tutorial</li>
+<li><a href="/go/index.htm">Go - Home</a></li>
+<li><a href="/go/go_overview.htm">Go - Overview</a></li>
+<li><a href="/go/go_environment.htm">Go - Environment Setup</a></li>
+<li><a href="/go/go_program_structure.htm">Go - Program Structure</a></li>
+<li><a href="/go/go_basic_syntax.htm">Go - Basic Syntax</a></li>
+<li><a href="/go/go_data_types.htm">Go - Data Types</a></li>
+<li><a href="/go/go_variables.htm">Go - Variables</a></li>
+<li><a href="/go/go_constants.htm">Go - Constants</a></li>
+<li><a href="/go/go_operators.htm">Go - Operators</a></li>
+<li><a href="/go/go_decision_making.htm">Go - Decision Making</a></li>
+<li><a href="/go/go_loops.htm">Go - Loops</a></li>
+<li><a href="/go/go_functions.htm">Go - Functions</a></li>
+<li><a href="/go/go_scope_rules.htm">Go - Scope Rules</a></li>
+<li><a href="/go/go_strings.htm">Go - Strings</a></li>
+<li><a href="/go/go_arrays.htm">Go - Arrays</a></li>
+<li><a href="/go/go_pointers.htm">Go - Pointers</a></li>
+<li><a href="/go/go_structures.htm">Go - Structures</a></li>
+<li><a href="/go/go_slice.htm">Go - Slice</a></li>
+<li><a href="/go/go_range.htm">Go - Range</a></li>
+<li><a href="/go/go_maps.htm">Go - Maps</a></li>
+<li><a href="/go/go_recursion.htm">Go - Recursion</a></li>
+<li><a href="/go/go_type_casting.htm">Go - Type Casting</a></li>
+<li><a href="/go/go_interfaces.htm">Go - Interfaces</a></li>
+<li><a href="/go/go_error_handling.htm">Go - Error Handling</a></li>
+<li class="heading">Go Useful Resources</li>
+<li><a href="/go/go_questions_answers.htm">Go - Questions and Answers</a></li>
+<li><a href="/go/go_quick_guide.htm">Go - Quick Guide</a></li>
+<li><a href="/go/go_useful_resources.htm">Go - Useful Resources</a></li>
+<li><a href="/go/go_discussion.htm">Go - Discussion</a></li>
+</ul>
+<ul class="nav nav-list primary push-bottom left-menu special">
+<li class="sreading">Selected Reading</li>
+<li><a target="_top" href="/developers_best_practices/index.htm">Developer's Best Practices</a></li>
+<li><a target="_top" href="/questions_and_answers.htm">Questions and Answers</a></li>
+<li><a target="_top" href="/effective_resume_writing.htm">Effective Resume Writing</a></li>
+<li><a target="_top" href="/hr_interview_questions/index.htm">HR Interview Questions</a></li>
+<li><a target="_top" href="/computer_glossary.htm">Computer Glossary</a></li>
+<li><a target="_top" href="/computer_whoiswho.htm">Who is Who</a></li>
+</ul>
+ </aside>
+</div>
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+<div class="col-md-7 middle-col">
+<h1>Go - Interview Questions</h1>
+<div class="topgooglead">
+<hr />
+<div style="padding-bottom:5px;padding-left:10px;">Advertisements</div>
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 468;
+google_ad_height = 60;
+google_ad_format = "468x60_as";
+google_ad_type = "image";
+google_ad_channel = "";
+//--></script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js"> 
+</script>
+</div>
+<hr />
+<div class="pre-btn">
+<a href="/go/go_questions_answers.htm"><i class="icon icon-arrow-circle-o-left big-font"></i> Previous Page</a>
+</div>
+<div class="nxt-btn">
+<a href="/go/go_questions_answers.htm">Next Page <i class="icon icon-arrow-circle-o-right big-font"></i>&nbsp;</a>
+</div>
+<div class="clearer"></div>
+<hr />
+<p>Dear readers, these <b>Go Programming Language Interview Questions</b> have been designed specially to get you acquainted with the nature of questions you may encounter during your interview for the subject of <b>Go Programming Language</b>. As per my experience good interviewers hardly plan to ask any particular question during your interview, normally questions start with some basic concept of the subject and later they continue based on further discussion and what you answer:</p>
+<section class="toggle">
+<label>What is Go?</label>
+<div class="toggle-content">
+<p>Go is a general-purpose language designed with systems programming in mind.It was initially developed at Google in year 2007 by Robert Griesemer, Rob Pike, and Ken Thompson. It is strongly and statically typed, provides inbuilt support for garbage collection and supports concurrent programming. Programs are constructed using packages, for efficient management of dependencies. Go programming implementations use a traditional compile and link model to generate executable binaries.</p>
+</div>
+</section>
+<section class="toggle">
+<label>What are the benefits of using Go programming?</label>
+<div class="toggle-content">
+<p>Following are the benefits of using Go programming &minus;</p>
+<ul class="list">
+<li><p>Support for environment adopting patterns similar to dynamic languages. For example type inference (x := 0 is valid declaration of a variable x of type int).</p></li>
+<li><p>Compilation time is fast.</p></li>
+<li><p>InBuilt concurrency support: light-weight processes (via goroutines), channels, select statement.</p></li>
+<li><p>Conciseness, Simplicity, and Safety.</p></li>
+<li><p>Support for Interfaces and Type embdding.</p></li>
+<li><p>Production of statically linked native binaries without external dependencies.</p></li>
+</ul>
+</div>
+</section>
+<section class="toggle">
+<label>Does Go support type inheritance?</label>
+<div class="toggle-content">
+<p>No support for type inheritance.</p>
+</div>
+</section>
+<section class="toggle">
+<label>Does Go support operator overloading?</label>
+<div class="toggle-content">
+<p>No support for operator overloading.</p>
+</div>
+</section>
+<section class="toggle">
+<label>Does Go support method overloading?</label>
+<div class="toggle-content">
+<p>No support for method overloading.</p>
+</div>
+</section>
+<section class="toggle">
+<label>Does Go support pointer arithmetics?</label>
+<div class="toggle-content">
+<p>No support for pointer arithmetic.</p>
+</div>
+</section>
+<section class="toggle">
+<label>Does Go support generic programming?</label>
+<div class="toggle-content">
+<p>No support for generic programming.</p>
+</div>
+</section>
+<section class="toggle">
+<label>Is Go a case sensitive language?</label>
+<div class="toggle-content">
+<p>Yes! Go is a case sensitive programming language.</p>
+</div>
+</section>
+<section class="toggle">
+<label>What is static type declaration of a variable in Go?</label>
+<div class="toggle-content">
+<p>Static type variable declaration provides assurance to the compiler that there is one variable existing with the given type and name so that compiler proceed for further compilation without needing complete detail about the variable. A variable declaration has its meaning at the time of compilation only, compiler needs actual variable declaration at the time of linking of the program.</p>
+</div>
+</section>
+<section class="toggle">
+<label>What is dynamic type declaration of a variable in Go?</label>
+<div class="toggle-content">
+<p>A dynamic type variable declaration requires compiler to interpret the type of variable based on value passed to it. Compiler don't need a variable to have type statically as a necessary requirement.</p>
+</div>
+</section>
+<section class="toggle">
+<label>Can you declared multiple types of variables in single declaration in Go?</label>
+<div class="toggle-content">
+<p>Yes Variables of different types can be declared in one go using type inference.</p>
+<pre class="prettyprint notranslate">
+var a, b, c = 3, 4, "foo"  
+</pre>
+</div>
+</section>
+<section class="toggle">
+<label>How to print type of a variable in Go?</label>
+<div class="toggle-content">
+<p>Following code prints the type of a variable &minus;</p>
+<pre class="prettyprint notranslate">
+var a, b, c = 3, 4, "foo"  
+fmt.Printf("a is of type %T\n", a)
+</pre>
+</div>
+</section>
+<section class="toggle">
+<label>What is a pointer?</label>
+<div class="toggle-content">
+<p>It's a pointer variable which can hold the address of a variable.</p>
+<p>For example &minus;</p>
+<pre class="prettyprint notranslate">
+var x = 5
+var p *int
+p = &amp;x
+fmt.Printf("x = %d", *p)
+</pre>
+<p>Here x can be accessed by *p.</p>
+</div>
+</section>
+<section class="toggle">
+<label>What is the purpose of break statement?</label>
+<div class="toggle-content">
+<p>break terminates the for loop or switch statement and transfers execution to the statement immediately following the for loop or switch.</p>
+</div>
+</section>
+<section class="toggle">
+<label>What is the purpose of continue statement?</label>
+<div class="toggle-content">
+<p>continue causes the loop to skip the remainder of its body and immediately retest its condition prior to reiterating.</p>
+</div>
+</section>
+<section class="toggle">
+<label>What is the purpose of goto statement?</label>
+<div class="toggle-content">
+<p>goto transfers control to the labeled statement.</p>
+</div>
+</section>
+<section class="toggle">
+<label>Explain the syntax for 'for' loop.</label>
+<div class="toggle-content">
+<p>The syntax of a for loop in Go programming language is &minus;</p>
+<pre class="prettyprint notranslate">
+for [condition |  ( init; condition; increment ) | Range] {
+   statement(s);
+}
+</pre>
+<p>Here is the flow of control in a for loop &minus;</p>
+<ul class="list">
+<li><p>if condition is available, then for loop executes as long as condition is true.</p></li>
+<li><p>if for clause that is ( init; condition; increment ) is present then
+<p>The init step is executed first, and only once. This step allows you to declare and initialize any loop control variables. You are not required to put a statement here, as long as a semicolon appears.</p>
+<p>Next, the condition is evaluated. If it is true, the body of the loop is executed. If it is false, the body of the loop does not execute and flow of control jumps to the next statement just after the for loop.</p>
+<p>After the body of the for loop executes, the flow of control jumps back up to the increment statement. This statement allows you to update any loop control variables. This statement can be left blank, as long as a semicolon appears after the condition.</p>
+<p>The condition is now evaluated again. If it is true, the loop executes and the process repeats itself (body of loop, then increment step, and then again condition). After the condition becomes false, the for loop terminates.</p>
+</p></li>
+<li><p>if range is available, then for loop executes for each item in the range.</p></li>
+</ul>
+</div>
+</section>
+<section class="toggle">
+<label>Explain the syntax to create a function in Go.</label>
+<div class="toggle-content">
+<p>The general form of a function definition in Go programming language is as follows &minus;</p>
+<pre class="prettyprint">
+func function_name( [parameter list] ) [return_types] {
+   body of the function
+}
+</pre>
+<p>A function definition in Go programming language consists of a <i>function header</i> and a <i>function body</i>. Here are all the parts of a function &minus;</p>
+<ul class="list">
+<li><p><b>func</b> func starts the declaration of a function.</p></li>
+<li><p><b>Function Name</b> &minus; This is the actual name of the function. The function name and the parameter list together constitute the function signature.</p></li>
+<li><p><b>Parameters &minus;</b> A parameter is like a placeholder. When a function is invoked, you pass a value to the parameter. This value is referred to as actual parameter or argument. The parameter list refers to the type, order, and number of the parameters of a function. Parameters are optional; that is, a function may contain no parameters.</p></li>
+<li><p><b>Return Type</b> &minus; A function may return a list of values. The <b>return_types</b> is the list of data types of the values the function returns. Some functions perform the desired operations without returning a value. In this case, the return_type is the not required.</p></li>
+<li><p><b>Function Body</b> &minus; The function body contains a collection of statements that define what the function does.</p></li>
+</ul>
+</div>
+</section>
+<section class="toggle">
+<label>Can you return multiple values from a function?</label>
+<div class="toggle-content">
+<p>A Go function can return multiple values. For example &minus;</p>
+<pre class="prettyprint notranslate">
+package main
+import "fmt"
+
+func swap(x, y string) (string, string) {
+   return y, x
+}
+func main() {
+   a, b := swap("Mahesh", "Kumar")
+   fmt.Println(a, b)
+}
+</pre>
+</div>
+</section>
+<section class="toggle">
+<label>In how many ways you can pass parameters to a method?</label>
+<div class="toggle-content">
+<p>While calling a function, there are two ways that arguments can be passed to a function &minus;</p>
+<ul class="list">
+<li><p><b>Call by value</b> &minus; This method copies the actual value of an argument into the formal parameter of the function. In this case, changes made to the parameter inside the function have no effect on the argument.</p></li>
+<li><p><b>Call by reference &minus;</b> This method copies the address of an argument into the formal parameter. Inside the function, the address is used to access the actual argument used in the call. This means that changes made to the parameter affect the argument.</p></li>
+</ul>
+</div>
+</section>
+<section class="toggle">
+<label>What is the default way of passing parameters to a function?</label>
+<div class="toggle-content">
+<p>By default, Go uses call by value to pass arguments. In general, this means that code within a function cannot alter the arguments used to call the function and above mentioned example while calling max() function used the same method.</p>
+</div>
+</section>
+<section class="toggle">
+<label>What do you mean by function as value in Go?</label>
+<div class="toggle-content">
+<p>Go programming language provides flexibility to create functions on the fly and use them as values. We can set a variable with a function definition and use it as parameter to a function.</p>
+</div>
+</section>
+<section class="toggle">
+<label>What are the function closures?</label>
+<div class="toggle-content">
+<p>Functions closure are anonymous functions and can be used in dynamic programming.</p>
+</div>
+</section>
+<section class="toggle">
+<label>What are methods in Go?</label>
+<div class="toggle-content">
+<p>Go programming language supports special types of functions called methods. In method declaration syntax, a "receiver" is present to represent the container of the function. This receiver can be used to call function using "." operator.</p>
+</div>
+</section>
+<section class="toggle">
+<label>What is default value of a local variable in Go?</label>
+<div class="toggle-content">
+<p>A local variable has default value as it corresponding 0 value.</p>
+</div>
+</section>
+<section class="toggle">
+<label>What is default value of a global variable in Go?</label>
+<div class="toggle-content">
+<p>A global variable has default value as it corresponding 0 value.</p>
+</div>
+</section>
+<section class="toggle">
+<label>What is default value of a pointer variable in Go?</label>
+<div class="toggle-content">
+<p>Pointer is initialized to nil.</p>
+</div>
+</section>
+<section class="toggle">
+<label>Explain the purpose of the function Printf().</label>
+<div class="toggle-content">
+<p>Prints the formatted output.</p>
+</div>
+</section>
+<section class="toggle">
+<label>What is lvalue and rvalue?</label>
+<div class="toggle-content">
+<p>The expression appearing on right side of the assignment operator is called as rvalue. Rvalue is assigned to lvalue, which appears on left side of the assignment operator. The lvalue should designate to a variable not a constant.</p>
+</div>
+</section>
+<section class="toggle">
+<label>What is the difference between actual and formal parameters?</label>
+<div class="toggle-content">
+<p>The parameters sent to the function at calling end are called as actual parameters while at the receiving of the function definition called as formal parameters.</p>
+</div>
+</section>
+<section class="toggle">
+<label>What is the difference between variable declaration and variable definition?</label>
+<div class="toggle-content">
+<p>Declaration associates type to the variable whereas definition gives the value to the variable.</p>
+</div>
+</section>
+<section class="toggle">
+<label>Explain modular programming.</label>
+<div class="toggle-content">
+<p>Dividing the program in to sub programs (modules/function) to achieve the given task is modular approach. More generic functions definition gives the ability to re-use the functions, such as built-in library functions.</p>
+</div>
+</section>
+<section class="toggle">
+<label>What is a token?</label>
+<div class="toggle-content">
+<p>A Go program consists of various tokens and a token is either a keyword, an identifier, a constant, a string literal, or a symbol.</p>
+</div>
+</section>
+<section class="toggle">
+<label>Which key word is used to perform unconditional branching?</label>
+<div class="toggle-content">
+<p>goto</p>
+</div>
+</section>
+<section class="toggle">
+<label>What is an array?</label>
+<div class="toggle-content">
+<p>Array is collection of similar data items under a common name.</p>
+</div>
+</section>
+<section class="toggle">
+<label>What is a nil Pointers in Go?</label>
+<div class="toggle-content">
+<p>Go compiler assign a Nil value to a pointer variable in case you do not have exact address to be assigned. This is done at the time of variable declaration. A pointer that is assigned nil is called a nil pointer. The nil pointer is a constant with a value of zero defined in several standard libraries.</p>
+</div>
+</section>
+<section class="toggle">
+<label>What is a pointer on pointer?</label>
+<div class="toggle-content">
+<p>It's a pointer variable which can hold the address of another pointer variable. It de-refers twice to point to the data held by the designated pointer variable.</p>
+<pre class="prettyprint notranslate">
+var a int
+var ptr *int
+var pptr **int
+a = 3000
+ptr = &amp;a
+pptr = &amp;ptr
+fmt.Printf("Value available at **pptr = %d\n", **pptr)
+</pre>
+<p>Therefore 'a' can be accessed by **pptr.</p>
+</div>
+</section>
+<section class="toggle">
+<label>What is structure in Go?</label>
+<div class="toggle-content">
+<p>Structure is another user defined data type available in Go programming, which allows you to combine data items of different kinds.</p>
+</div>
+</section>
+<section class="toggle">
+<label>How to define a structure in Go?</label>
+<div class="toggle-content">
+<p>To define a structure, you must use type and struct statements. The struct statement defines a new data type, with more than one member for your program. type statement binds a name with the type which is struct in our case.</p> 
+<p>The format of the struct statement is this &minus;</p>
+<pre class="prettyprint notranslate">
+type struct_variable_type struct {
+   member definition;
+   member definition;
+   ...
+   member definition;
+}
+</pre>
+</div>
+</section>
+<section class="toggle">
+<label>What is slice in Go?</label>
+<div class="toggle-content">
+<p>Go Slice is an abstraction over Go Array. As Go Array allows you to define type of variables that can hold several data items of the same kind but it do not provide any inbuilt method to increase size of it dynamically or get a sub-array of its own. Slices covers this limitation. It provides many utility functions required on Array and is widely used in Go programming.</p>
+</div>
+</section>
+<section class="toggle">
+<label>How to define a slice in Go?</label>
+<div class="toggle-content">
+<p>To define a slice, you can declare it as an array without specifying size or use make function to create the one.</p>
+<pre class="prettyprint notranslate">
+var numbers []int /* a slice of unspecified size */
+/* numbers == []int{0,0,0,0,0}*/
+numbers = make([]int,5,5) /* a slice of length 5 and capacity 5*/
+</pre>
+</div>
+</section>
+<section class="toggle">
+<label>How to get the count of elements present in a slice?</label>
+<div class="toggle-content">
+<p>len() function returns the elements presents in the slice.</p>
+</div>
+</section>
+<section class="toggle">
+<label>What is the difference between len() and cap() functions of slice in Go?</label>
+<div class="toggle-content">
+<p>len() function returns the elements presents in the slice where cap() function returns the capacity of slice as how many elements it can be accomodate.</p>
+</div>
+</section>
+<section class="toggle">
+<label>How to get a sub-slice of a slice?</label>
+<div class="toggle-content">
+<p>Slice allows lower-bound and upper bound to be specified to get the subslice of it using[lower-bound:upper-bound].</p>
+</div>
+</section>
+<section class="toggle">
+<label>What is range in Go?</label>
+<div class="toggle-content">
+<p>The range keyword is used in for loop to iterate over items of an array, slice, channel or map. With array and slices, it returns the index of the item as integer. With maps, it returns the key of the next key-value pair. </p>
+</div>
+</section>
+<section class="toggle">
+<label>What are maps in Go?</label>
+<div class="toggle-content">
+<p>Go provides another important data type map which maps unique keys to values. A key is an object that you use to retrieve a value at a later date. Given a key and a value, you can store the value in a Map object. After value is stored, you can retrieve it by using its key.</p>
+</div>
+</section>
+<section class="toggle">
+<label>How to create a map in Go?</label>
+<div class="toggle-content">
+<p>You must use make function to create a map.</p>
+<pre class="prettyprint notranslate">
+/* declare a variable, by default map will be nil*/
+var map_variable map[key_data_type]value_data_type
+
+/* define the map as nil map can not be assigned any value*/
+map_variable = make(map[key_data_type]value_data_type)
+</pre>
+</div>
+</section>
+<section class="toggle">
+<label>How to delete an entry from a map in Go?</label>
+<div class="toggle-content">
+<p>delete() function is used to delete an entry from the map. It requires map and corresponding key which is to be deleted.</p>
+</div>
+</section>
+<section class="toggle">
+<label>What is type casting in Go?</label>
+<div class="toggle-content">
+<p>Type casting is a way to convert a variable from one data type to another data type. For example, if you want to store a long value into a simple integer then you can type cast long to int. You can convert values from one type to another using the cast operator as following &minus;</p>
+<pre class="prettyprint notraslate">
+type_name(expression)
+</pre>
+</div>
+</section>
+<section class="toggle">
+<label>What are interfaces in Go?</label>
+<div class="toggle-content">
+<p>Go programming provides another data type called interfaces which represents a set of method signatures. struct data type implements these interfaces to have method definitions for the method signature of the interfaces.</p>
+</div>
+</section>
+<h2>What is Next ?</h2>
+<p>Further you can go through your past assignments you have done with the subject and make sure you are able to speak confidently on them. If you are fresher then interviewer does not expect you will answer very complex questions, rather you have to make your basics concepts very strong.</p>
+<p>Second it really doesn't matter much if you could not answer few questions but it matters that whatever you answered, you must have answered with confidence. So just feel confident during your interview. We at tutorialspoint wish you best luck to have a good interviewer and all the very best for your future endeavor. Cheers :-)</p>
+<hr />
+<div class="pre-btn">
+<a href="/go/go_questions_answers.htm"><i class="icon icon-arrow-circle-o-left big-font"></i> Previous Page</a>
+</div><div class="print-btn center">
+<a href="/cgi-bin/printpage.cgi" target="_blank"><i class="icon icon-print big-font"></i> Print</a>
+</div>
+<div class="nxt-btn">
+<a href="/go/go_questions_answers.htm">Next Page <i class="icon icon-arrow-circle-o-right big-font"></i>&nbsp;</a>
+</div>
+<div class="parent-file">go_questions_answers.htm</div>
+<hr />
+<!-- PRINTING ENDS HERE -->
+<div class="bottomgooglead">
+<div class="bottomadtag">Advertisements</div>
+<script type="text/javascript"><!--
+var width = 580;
+var height = 400;
+var format = "580x400_as";
+if( window.innerWidth < 468 ){
+   width = 300;
+   height = 250;
+   format = "300x250_as";
+}
+google_ad_client = "pub-7133395778201029";
+google_ad_width = width;
+google_ad_height = height;
+google_ad_format = format;
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-3" id="rightbar">
+<div class="simple-ad">
+<a href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('https://www.facebook.com/sharer.php?u=' + 'http://www.tutorialspoint.com/go/go_interview_questions.htm','sharer','toolbar=0,status=0,width=626,height=456,top='+sTop+',left='+sLeft);return false;">
+<img src="/images/facebookIcon.jpg" alt="img" />
+</a>
+<a  href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('https://twitter.com/share?url=' + 'http://www.tutorialspoint.com/go/go_interview_questions.htm','sharer','toolbar=0,status=0,width=626,height=456,top='+sTop+',left='+sLeft);return false;">
+<img src="/images/twitterIcon.jpg" alt="img" />
+</a>
+<a  href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('https://www.linkedin.com/cws/share?url=' + 'http://www.tutorialspoint.com/go/go_interview_questions.htm&amp;title='+ document.title,'sharer','toolbar=0,status=0,width=626,height=456,top='+sTop+',left='+sLeft);return false;">
+<img src="/images/linkedinIcon.jpg" alt="img" />
+</a>
+<a  href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('https://plus.google.com/share?url=http://www.tutorialspoint.com/go/go_interview_questions.htm','sharer','toolbar=0,status=0,width=626,height=456,top='+sTop+',left='+sLeft);return false;">
+<img src="/images/googlePlusIcon.jpg" alt="img" />
+</a>
+<a  href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('https://www.stumbleupon.com/submit?url=http://www.tutorialspoint.com/go/go_interview_questions.htm&amp;title='+ document.title,'sharer','toolbar=0,status=0,width=626,height=456,top='+sTop+',left='+sLeft);return false;">
+<img src="/images/StumbleUponIcon.jpg" alt="img" />
+</a>
+<a  href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('https://reddit.com/submit?url=http://www.tutorialspoint.com/go/go_interview_questions.htm&amp;title='+ document.title,'sharer','toolbar=0,status=0,width=626,height=656,top='+sTop+',left='+sLeft);return false;">
+<img src="/images/reddit.jpg" alt="img" />
+</a>
+</div>
+<div class="rightgooglead">
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 300;
+google_ad_height = 250;
+google_ad_format = "300x250_as";
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+<div class="rightgooglead">
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 300;
+google_ad_height = 600;
+google_ad_format = "300x600_as";
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+<div class="rightgooglead">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-2537027957187252";
+/* Right Side Ad */
+google_ad_slot = "right_side_ad";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer-copyright">
+<div class="container">
+<div class="row">
+<div class="col-md-1">
+<a href="index.htm" class="logo"> <img alt="Tutorials Point" class="img-responsive" src="/scripts/img/logo-footer.png"> </a>
+</div>
+<div class="col-md-4 col-sm-12 col-xs-12">
+   <nav id="sub-menu">
+      <ul>
+         <li><a href="/about/tutorials_writing.htm">Write for us</a></li>
+         <li><a href="/about/faq.htm">FAQ's</a></li>
+         <li><a href="/about/about_helping.htm">Helping</a></li>
+         <li><a href="/about/contact_us.htm">Contact</a></li>
+      </ul>
+   </nav>
+</div>
+<div class="col-md-3 col-sm-12 col-xs-12">
+<p>&copy; Copyright 2017. All Rights Reserved.</p>
+</div>
+<div class="col-md-4 col-sm-12 col-xs-12">
+   <div class="news-group">
+      <input type="text" class="form-control-foot search" name="textemail" id="textemail" autocomplete="off" placeholder="Enter email for newsletter" onfocus="if (this.value == 'Enter email for newsletter...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Enter email for newsletter...';}">
+      <span class="input-group-btn"> <button class="btn btn-default btn-footer" id="btnemail" type="submit" onclick="javascript:void(0);">go</button> </span>
+      <div id="newsresponse"></div>
+   </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Libs -->
+<script type="text/javascript" src="/theme/js/custom-min.js?v=5"></script>
+<script src="https://www.google-analytics.com/urchin.js">
+</script>
+<script type="text/javascript">
+_uacct = "UA-232293-6";
+urchinTracker();
+$('.pg-icon').click(function(){
+   $('.wrapLoader').show();
+});
+</script>
+<script type="text/javascript" src="/theme/js/jquery.colorbox-min.js"></script>
+<script type="text/javascript">
+   var tryit = new $.TryIt('/go/try_go.php');
+   tryit.compile();
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Go Interview Questions",
+    "name": "Go Interview Questions",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.tutorialspoint.com/go/go_interview_questions.htm"
+    },
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://www.tutorialspoint.com/go/images/go-mini-logo.jpg",
+        "width": 255,
+        "height": 194
+    },
+    "author": {
+        "@type": "Organization",
+        "name": "Tutorials Point",
+        "url": "https://www.tutorialspoint.com",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.tutorialspoint.com/images/logo60.png",
+            "width": 210,
+            "height": 60
+        }
+    },
+    "datePublished": "August 15 2017 02:44:31.",
+    "dateModified": "August 15 2017 02:34:16.",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Tutorials Point",
+        "url": "https://www.tutorialspoint.com",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.tutorialspoint.com/images/logo60.png",
+            "width": 210,
+            "height": 60
+        }
+    },
+    "description": "Dear readers, these Go Programming Language Interview Questions have been designed specially to get you acquainted with the nature of questions you may encounter during your interview for the subject of Go Programming Language. As per my experience good i..."
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "name": "www.tutorialspoint.com",
+                "@id": "https://www.tutorialspoint.com"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "name": "Go",
+                "@id": "https://www.tutorialspoint.com/go"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "name": null
+            }
+        }
+    ]
+}
+</script>
+</div>
+</body>
+</html>

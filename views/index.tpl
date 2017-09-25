@@ -19,7 +19,7 @@
 .fa-briefcase:before {content:"\f0b1"; font-family:'FontAwesome'; font-style:normal; font-weight:normal; font-size:100%;}
 .fa-icons{font-size:120%; color:#4F4F42; position:relative; top:3px; padding:0px 10px 0px 0px;}
 </style>
-<base href="http://10.20.110.33:8080/" />
+<base href="http://127.0.0.1:8080/" />
 <link rel="shortcut icon" href="/static/img/r-letter.png" type="image/x-icon" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
 <meta property="og:locale" content="en_US" />
@@ -79,8 +79,8 @@ $(document).ready(function() {
 <header>
    <div class="container">			
       <h1 class="logo">
-      <a href="index.htm" title="在线开发教程">
-      <img alt="tutorialspoint" src="/static/img/logo.jpg">
+      <a href="" title="在线开发教程">
+      <img alt="在线开发教程" src="/static/img/logo.jpg">
       </a>
       </h1>			
          <!-- search code here  --> 
@@ -121,7 +121,7 @@ $(document).ready(function() {
 <div class="featured-box">
 <h4>编程语言</h4>
 <ul class="menu" id="computer_programming" data-href="computer_programming_tutorials.htm">
-<li><a  href="/go/index.htm" title="Learn Go Programing">Learn Go Programing</a></li>
+<li><a  href="static/tutorials/go/index.htm" title="Learn Go Programing">Learn Go Programing</a></li>
 <li><a  href="/learn_c_by_examples/index.htm" title="Learn C by Examples">Learn C by Examples</a></li>
 </ul>
 
