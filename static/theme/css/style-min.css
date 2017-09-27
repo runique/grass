@@ -4212,7 +4212,7 @@ aside ul.nav-list>li>a:hover {
     background-color: #d6d6d6
 }
 ul.nav-list.primary>li a {
-    background: url(/images/list-icon.png) no-repeat 0 9px;
+    background: url(/static/img/list-icon.png) no-repeat 0 9px;
     color: #000;
     text-decoration: none
 }

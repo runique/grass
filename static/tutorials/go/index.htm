@@ -27,9 +27,9 @@
 <link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
 <![endif]-->
 <style>
-pre.prettyprint.tryit {min-height:37px; background: #eee url(/go/images/try-it.jpg) top right no-repeat !important}select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+pre.prettyprint.tryit {min-height:37px; background: #eee /*url(static/tutorials/go/images/try-it.jpg)*/ top right no-repeat !important}select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
 ul.nav-list.primary>li a.videolink{    background: none; margin: 0px; padding: 0px; border: 1px solid #d6d6d6;}
-div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #74cddd url(/images/pattern.png) repeat center center !important;}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #74cddd url(/static/img/pattern.png) repeat center center !important;}
 .sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #74cddd !important;}
 .submenu-item{ border-bottom: 2px solid #74cddd !important; border-top: 2px solid #74cddd !important }
 .ace_scroller{overflow: auto!important;}
@@ -127,14 +127,14 @@ $(document).ready(function() {
 <div class="content">
 <div class="col-md-7 middle-col">
 <div class="cover">
-<img class="img-responsive" src="/go/images/go.jpg" alt="Go Tutorial" />
+<img class="img-responsive" src="/static/tutorials/go/images/go.jpg" alt="Go语言教程" />
 </div>
 <hr />
 <div class="pre-btn">
-<a href="/index.htm"><i class="icon icon-arrow-circle-o-left big-font"></i> Previous Page</a>
+<a href="/static/tutorials/go/index.htm"><i class="icon icon-arrow-circle-o-left big-font"></i> Previous Page</a>
 </div>
 <div class="nxt-btn">
-<a href="/go/go_overview.htm">Next Page <i class="icon icon-arrow-circle-o-right big-font"></i>&nbsp;</a>
+<a href="/static/tutorials/go/go_overview.htm">Next Page <i class="icon icon-arrow-circle-o-right big-font"></i>&nbsp;</a>
 </div>
 <div class="clearer"></div>
 <hr />
@@ -168,13 +168,11 @@ func main() {
 </pre>
 <hr />
 <div class="pre-btn">
-<a href="/index.htm"><i class="icon icon-arrow-circle-o-left big-font"></i> Previous Page</a>
+<a href="/static/tutorials/go/index.htm"><i class="icon icon-arrow-circle-o-left big-font"></i> Previous Page</a>
 </div>
-<div class="print-btn center">
-<a href="/cgi-bin/printpage.cgi" target="_blank"><i class="icon icon-print big-font"></i> Print</a>
-</div>
+
 <div class="nxt-btn">
-<a href="/go/go_overview.htm">Next Page <i class="icon icon-arrow-circle-o-right big-font"></i>&nbsp;</a>
+<a href="/static/tutorials/go/go_overview.htm">Next Page <i class="icon icon-arrow-circle-o-right big-font"></i>&nbsp;</a>
 </div>
 <hr />
 <!-- PRINTING ENDS HERE -->
@@ -196,11 +194,13 @@ $('.pg-icon').click(function(){
    $('.wrapLoader').show();
 });
 </script>
-<script type="text/javascript" src="/theme/js/jquery.colorbox-min.js"></script>
+<!--
+<script type="text/javascript" src="/static/theme/js/jquery.colorbox-min.js"></script>
 <script type="text/javascript">
    var tryit = new $.TryIt('/go/try_go.php');
    tryit.compile();
 </script>
+-->
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
