@@ -70,6 +70,7 @@ $(document).ready(function() {
 });
 </script>
 </head>
+
 <body onload="prettyPrint()">
 <div class="wrapLoader">
    <div class="imgLoader">
@@ -79,16 +80,16 @@ $(document).ready(function() {
 <header>
    <div class="container">			
       <h1 class="logo">
-      <a href="" title="在线开发教程">
-      <img alt="在线开发教程" src="/static/img/logo.jpg">
-      </a>
+      <a href="http://www.getq.cn/" title="在线开发教程"> <img alt="在线开发教程" src="/static/img/logo.jpg"> </a>
       </h1>			
          <!-- search code here  --> 
-      <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse" id="pull" style="top: 24px!important"> <i class="icon icon-bars"></i> </button>
+	
+      <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse" id="pull" style="top: 24px!important"> 
+		<i class="icon icon-bars"></i> 
+	  </button>
    </div>
 	
 </header>
-<div style="clear:both;"></div>
 
 <div id="global">
 <!--
@@ -99,6 +100,7 @@ $(document).ready(function() {
 -->
 <div class="container">
 <div class="row featured-boxes">
+
 <div class="col-md-3">
 <div class="featured-box">
 
@@ -117,6 +119,7 @@ $(document).ready(function() {
 </ul>
 </div>
 </div>
+
 <div class="col-md-3">
 <div class="featured-box">
 <h4>编程语言</h4>
@@ -125,10 +128,6 @@ $(document).ready(function() {
 <li><a  href="/learn_c_by_examples/index.htm" title="Learn C by Examples">Learn C by Examples</a></li>
 </ul>
 
-</div>
-</div>
-<div class="col-md-3">
-<div class="featured-box">
 <h4>Web 开发</h4>
 <ul class="menu" id="web_development" data-href="web_development_tutorials.htm">
 <li><a  href="/css/index.htm" title="Learn CSS">Learn CSS</a></li>
@@ -136,35 +135,15 @@ $(document).ready(function() {
 <li><a  href="/html5/index.htm" title="Learn HTML5">Learn HTML5</a></li>
 <li><a  href="/http/index.htm" title="Learn HTTP">Learn HTTP</a></li>
 </ul>
-</div>
-</div>
 
 </div>
 </div>
-</div>
-
 
 </div>
 </div>
 </div>
 
-</div>
-<footer class="inner">
-
-</div>
-</div>
-
-</footer>
-<script type="text/javascript" src="/static/theme/js/custom-min.js"></script>
-<script src="https://www.google-analytics.com/urchin.js">
-</script>
-<script type="text/javascript">
-_uacct = "UA-232293-6";
-urchinTracker();
-$('.greyout').click(function(){
-   $('.wrapLoader').show();
-});
-</script>
 </body>
+
 </html>
 
