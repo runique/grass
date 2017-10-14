@@ -109,118 +109,60 @@ $(document).ready(function() {
 <img class="img-responsive" src="/static/img/rsp.jpg" alt="Lua教程" />
 </div>
 
-<h1>Lua基本句法</h1>
+<h1>Lua程序分支</h1>
 <hr />
 
 <hr />
 <div class="pre-btn">
-<a href="/static/tutorials/lua/lua_environment.htm"><i class="icon icon-arrow-circle-o-left big-font"></i> 上一页</a>
+<a href="/static/tutorials/lua/lua_basic_syntax.htm"><i class="icon icon-arrow-circle-o-left big-font"></i> 上一页</a>
 </div>
 
 <div class="nxt-btn">
-<a href="/static/tutorials/lua/lua_decision_making.htm">下一页 <i class="icon icon-arrow-circle-o-right big-font"></i>&nbsp;</a>
+<a href="/static/tutorials/lua/index.htm">下一页 <i class="icon icon-arrow-circle-o-right big-font"></i>&nbsp;</a>
 </div>
 
 <div class="clearer"></div>
 <hr />
 
-<p>让我们开始创建第一个Lua程序</p>
+<p>根据条件，执行程序分支</p>
+<p>典型的程序分支如下图：</p>
+
 <h2>交互模式</h2>
 <p>Lua提供了交互模式。在交互模式下，你可以在命令行输入程序，回车后得到运行结果。例如：</p>
-<pre class="result notranslate">
-$ lua -i 
-$ Lua 5.1.4  Copyright (C) 1994-2008 Lua.org, PUC-Rio
-quit to end; cd, dir and edit also available
-</pre>
-<p>输入：</p>
-<pre class="result notranslate">
-print("test")
-</pre>
+<img src="/static/tutorials/lua/images/decision_making.jpg" alt="Decision making statements in Lua" />
+<p>Lua语言认为布尔值true或者non-nil都为true，而布尔值false或者nil都为false。特别注意0值应认为是true</p>
 <br>
-<h2>默认模式</h2>
-<p>默认模式下，Lua解释器(intepreter)遍历并执行Lua文件</p>
-<p>将Lua程序存为扩展名为.lua的文件。编辑一个文件test.lua，内容为：</p>
-<pre class="result notranslate">
-print("test")
-</pre>
-<p>运行</p>
-<pre class="result notranslate">
-$ lua test.lua
-</pre>
-<p>将得到以下结果：</p>
-<pre class="result notranslate">
-test
-</pre>
-也可隐式的运行Lua解释器。这种情况下，以上的test.lua将加入一行路径指示Lua解释器的路径在哪里，例如：
-<pre class="result notranslate">
-#!/usr/local/bin/lua
-
-print("test")
-</pre>
-<p>其中#!/usr/local/bin/lua指出，Lua解释器在/usr/local/bin/路径下。这样，通过修改test.lua的运行权限(linux下)，可以在shell执行运行test.lua文件：</p>
-<pre class="result notranslate">
-$ chmod a+rx test.lua
-$./test.lua
-</pre>
-输出和默认模式下是一样的：
-<pre class="result notranslate">
-test
-</pre>
-<h2>注释</h2>
-Lua中，注释以--[[开始，以--]]结束，例如：
-<pre class="result notranslate">
---[[ my first program in Lua --]]
-</pre>
-<h2>命名规范</h2>
-Lua程序中，变量名、函数名等只能以字母或者下划线_开始，后面可以包含数字，但不能包含标点符号，例如@，$，%。Lua是大小写敏感的。
-<h2>保留的关键字</h2>
-<p>以下关键字是Lua保留的，不能用做变量名函数名等标识：</p>
-<table class="table table-bordered" style="text-align:center;">
+<p>Lua语言提供以下类型的分支结构：</p>
+<table class="table table-bordered">
 <tr>
-<td>and</td>
-<td>break</td>
-<td>do</td>
-<td>else</td>
+<th style="text-align:center;">Sr.No.</th>
+<th style="text-align:center;">Statement &amp; Description</th>
 </tr>
 <tr>
-<td>elseif</td>
-<td>end</td>
-<td>false</td>
-<td>for</td>
+<td class="ts">1</td>
+<td><a href="/lua/if_statement_in_lua.htm" title="if statement in Lua">if statement</a>
+<p>An <b>if statement</b> consists of a boolean expression followed by one or more statements.</p></td>
 </tr>
 <tr>
-<td>function</td>
-<td>if</td>
-<td>in</td>
-<td>local</td>
+<td class="ts">2</td>
+<td><a href="/lua/if_else_statement_in_lua.htm" title="if...else statement in Lua">if...else statement</a>
+<p>An <b>if statement</b> can be followed by an optional <b>else statement</b>, which executes when the boolean expression is false.</p></td>
 </tr>
 <tr>
-<td>nil</td>
-<td>not</td>
-<td>or</td>
-<td>repeat</td>
-</tr>
-<tr>
-<td>return</td>
-<td>then</td>
-<td>true</td>
-<td>until</td>
-</tr>
-<tr>
-<td>while</td>
-<td></td>
-<td></td>
-<td></td>
+<td class="ts">3</td>
+<td><a href="/lua/nested_if_statements_in_lua.htm" title="nested if statements in Lua">nested if statements</a>
+<p>You can use one <b>if</b> or <b>else if</b> statement inside another <b>if</b> or <b>else if</b> statement(s).</p></td>
 </tr>
 </table>
-<hr>
+
+<hr/>
 
 <div class="pre-btn">
-<a href="/static/tutorials/lua/lua_environment.htm"><i class="icon icon-arrow-circle-o-left big-font"></i> 上一页</a>
+<a href="/static/tutorials/lua/lua_basic_syntax.htm"><i class="icon icon-arrow-circle-o-left big-font"></i> 上一页</a>
 </div>
 
 <div class="nxt-btn">
-<a href="/static/tutorials/lua/lua_decision_making.htm">下一页 <i class="icon icon-arrow-circle-o-right big-font"></i>&nbsp;</a>
+<a href="/static/tutorials/lua/index.htm">下一页 <i class="icon icon-arrow-circle-o-right big-font"></i>&nbsp;</a>
 </div>
 <hr />
 <!-- PRINTING ENDS HERE -->
