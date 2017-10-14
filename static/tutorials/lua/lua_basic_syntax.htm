@@ -93,7 +93,7 @@ $(document).ready(function() {
 <li class="heading">Lua教程</li>
 <li><a href="/static/tutorials/lua/index.htm">Lua概要</a></li>
 <li><a href="/static/tutorials/lua/lua_environment.htm">Lua开发环境</a></li>
-<li><a href="/static/tutorials/lua/go_program_structure.htm">Lua基本句法)</a></li>
+<li><a href="/static/tutorials/lua/lua_basic_syntax.htm">Lua基本句法(syntax)</a></li>
 <li><a href="/static/tutorials/go/go_basic_syntax.htm">Go - Basic Syntax</a></li>
 <li><a href="/static/tutorials/go/go_data_types.htm">Go - Data Types</a></li>
 <li><a href="/static/tutorials/go/go_variables.htm">Go - Variables</a></li>
@@ -130,43 +130,114 @@ $(document).ready(function() {
 
 <hr />
 <div class="pre-btn">
-<a href="/static/tutorials/lua/index.htm"><i class="icon icon-arrow-circle-o-left big-font"></i> 上一页</a>
+<a href="/static/tutorials/lua/lua_environment.htm"><i class="icon icon-arrow-circle-o-left big-font"></i> 上一页</a>
 </div>
 
 <div class="nxt-btn">
-<a href="/static/tutorials/lua/lua_environment.htm">下一页 <i class="icon icon-arrow-circle-o-right big-font"></i>&nbsp;</a>
+<a href="/static/tutorials/lua/lua_basic_syntax.htm">下一页 <i class="icon icon-arrow-circle-o-right big-font"></i>&nbsp;</a>
 </div>
 
 <div class="clearer"></div>
 <hr />
 
-<h1>Lua概要</h1>
+<h1>Lua基本句法</h1>
+<p>让我们开始创建第一个Lua程序</p>
+<h2>交互模式</h2>
+<p>Lua提供了交互模式。在交互模式下，你可以在命令行输入程序，回车后得到运行结果。例如：</p>
+<pre class="result notranslate">
+$ lua -i 
+$ Lua 5.1.4  Copyright (C) 1994-2008 Lua.org, PUC-Rio
+quit to end; cd, dir and edit also available
+</pre>
+<p>输入：</p>
+<pre class="result notranslate">
+print("test")
+</pre>
 <br>
-<p> Lua是一个小巧的脚本语言。是巴西里约热内卢天主教大学（Pontifical Catholic University of Rio de Janeiro）里的一个研究小组，由Roberto Ierusalimschy、Waldemar Celes 和 Luiz Henrique de Figueiredo所组成并于1993年开发。 其设计目的是为了嵌入应用程序中，从而为应用程序提供灵活的扩展和定制功能。Lua由标准C编写而成，几乎在所有操作系统和平台上都可以编译，运行。Lua并没有提供强大的库，这是由它的定位决定的。所以Lua不适合作为开发独立应用程序的语言。Lua 有一个同时进行的JIT项目，提供在特定平台上的即时编译功能。</p>
-<p>Lua脚本可以很容易的被C/C++ 代码调用，也可以反过来调用C/C++的函数，这使得Lua在应用程序中可以被广泛应用。不仅仅作为扩展脚本，也可以作为普通的配置文件，代替XML,ini等文件格式，并且更容易理解和维护。Lua由标准C编写而成，代码简洁优美，几乎在所有操作系统和平台上都可以编译，运行。一个完整的Lua解释器不过200k，在目前所有脚本引擎中，Lua的速度是最快的。这一切都决定了Lua是作为嵌入式脚本的最佳选择。</p>
-<h1>特性</h1>
-<h2>轻量级</h2>
-<p>轻量级Lua语言的官方版本只包括一个精简的核心和最基本的库。这使得Lua体积小、启动速度快，从而适合嵌入在别的程序里。5.0.2版的Lua的内核小于120KB，而Python的内核大约860KB，Perl的内核大约1.1MB</p>
-<h2>可扩展</h2>
-<p>可扩展 Lua并不象其它许多"大而全"的语言那样，包括很多功能，比如网络通讯、图形界面等。但是Lua提供了非常易于使用的扩展接口和机制：由宿主语言(通常是C或C++)提供这些功能，Lua可以使用它们，就像是本来就内置的功能一样。</p>
-<h2>其它特性</h2>
-<p>Lua还具有其它一些特性：同时支持面向过程(procedure-oriented)编程和函数式编程(functional programming)；自动内存管理；只提供了一种通用类型的表（table），用它可以实现数组，哈希表，集合，对象；语言内置模式匹配；闭包(closure)；函数也可以看做一个值；提供多线程（协同进程 [4]  ，并非操作系统所支持的线程）支持；通过闭包和table可以很方便地支持面向对象编程所需要的一些关键机制，比如数据抽象，虚函数，继承和重载等。</p>
-<h2>Lua 应用场景</h2>
-<ul class="list">
-<li>游戏开发 </li>
-<li>独立应用脚本</li>
-<li>Web 应用脚本</li>
-<li>扩展和数据库插件如：MySQL Proxy 和 MySQL WorkBench</li>
-<li>安全系统，如入侵检测系统</li>
-</ul>
+<h2>默认模式</h2>
+<p>默认模式下，Lua解释器(intepreter)遍历并执行Lua文件</p>
+<p>将Lua程序存为扩展名为.lua的文件。编辑一个文件test.lua，内容为：</p>
+<pre class="result notranslate">
+print("test")
+</pre>
+<p>运行</p>
+<pre class="result notranslate">
+$ lua test.lua
+</pre>
+<p>将得到以下结果：</p>
+<pre class="result notranslate">
+test
+</pre>
+也可隐式的运行Lua解释器。这种情况下，以上的test.lua将加入一行路径指示Lua解释器的路径在哪里，例如：
+<pre class="result notranslate">
+#!/usr/local/bin/lua
 
-<hr />
+print("test")
+</pre>
+<p>其中#!/usr/local/bin/lua指出，Lua解释器在/usr/local/bin/路径下。这样，通过修改test.lua的运行权限(linux下)，可以在shell执行运行test.lua文件：</p>
+<pre class="result notranslate">
+$ chmod a+rx test.lua
+$./test.lua
+</pre>
+输出和默认模式下是一样的：
+<pre class="result notranslate">
+test
+</pre>
+<h2>注释</h2>
+Lua中，注释以--[[开始，以--]]结束，例如：
+<pre class="result notranslate">
+--[[ my first program in Lua --]]
+</pre>
+<h2>命名规范</h2>
+Lua程序中，变量名、函数名等只能以字母或者下划线_开始，后面可以包含数字，但不能包含标点符号，例如@，$，%。Lua是大小写敏感的。
+<h2>保留的关键字</h2>
+<p>以下关键字是Lua保留的，不能用做变量名函数名等标识：</p>
+<table class="table table-bordered" style="text-align:center;">
+<tr>
+<td>and</td>
+<td>break</td>
+<td>do</td>
+<td>else</td>
+</tr>
+<tr>
+<td>elseif</td>
+<td>end</td>
+<td>false</td>
+<td>for</td>
+</tr>
+<tr>
+<td>function</td>
+<td>if</td>
+<td>in</td>
+<td>local</td>
+</tr>
+<tr>
+<td>nil</td>
+<td>not</td>
+<td>or</td>
+<td>repeat</td>
+</tr>
+<tr>
+<td>return</td>
+<td>then</td>
+<td>true</td>
+<td>until</td>
+</tr>
+<tr>
+<td>while</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+<hr>
+
 <div class="pre-btn">
-<a href="/static/tutorials/lua/index.htm"><i class="icon icon-arrow-circle-o-left big-font"></i> 上一页</a>
+<a href="/static/tutorials/lua/lua_environment.htm"><i class="icon icon-arrow-circle-o-left big-font"></i> 上一页</a>
 </div>
 
 <div class="nxt-btn">
-<a href="/static/tutorials/lua/lua_environment.htm">下一页 <i class="icon icon-arrow-circle-o-right big-font"></i>&nbsp;</a>
+<a href="/static/tutorials/lua/lua_basic_syntax.htm">下一页 <i class="icon icon-arrow-circle-o-right big-font"></i>&nbsp;</a>
 </div>
 <hr />
 <!-- PRINTING ENDS HERE -->
