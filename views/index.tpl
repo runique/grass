@@ -115,6 +115,7 @@ $(document).ready(function() {
 <ul class="menu" id="script_tutorials" data-href="script_tutorials.htm">
 <li><a  href="static/tutorials/lua/index.htm" title="Lua教程">Lua教程</a></li>
 <li><a  href="/tennis/index.htm" title="Tennis">Tennis</a></li>
+</ul>
 
 <h4>运动</h4>
 <ul class="menu" id="sports_tutorials" data-href="sports_tutorials.htm">
